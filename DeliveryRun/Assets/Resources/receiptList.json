@@ -1,0 +1,83 @@
+﻿[
+    {
+      "storeId": 1,
+      "storeName": "맛있는중국집",
+      "menus": [
+          {"menu":"짜장면"},
+          {"menu":"짬뽕"},
+          {"menu":"탕수육"}
+      ]
+    },
+    {
+      "storeId": 2,
+      "storeName": "잘구워빵집",
+      "menus": [
+          {"menu":"단팥빵"}, 
+          {"menu":"식빵"},
+          {"menu":"소보루빵"}
+      ]
+    },
+    {
+      "storeId": 3,
+      "storeName": "고소한카페",
+      "menus": [
+          {"menu":"아메리카노"},
+          {"menu":"초코라떼"},
+          {"menu":"카페라떼"}
+      ]
+    },
+    {
+      "storeId": 4,
+      "storeName": "멋진분식",
+      "menus": [
+          {"menu":"떡볶이"},
+          {"menu":"순대"},
+          {"menu":"김밥"}
+      ]
+    },
+    {
+      "storeId": 5,
+      "storeName": "편해라편의점",
+      "menus": [
+          {"menu":"물"},
+          {"menu":"아이스크림"},
+          {"menu":"라면"}
+      ]
+    },
+    {
+      "storeId": 6,
+      "storeName": "튀겨치킨",
+      "menus": [
+          {"menu":"치킨"},
+          {"menu":"치즈볼"},
+          {"menu":"맥주"}
+      ]
+    },
+    {
+      "storeId": 7,
+      "storeName": "쭈욱피자",
+      "menus": [
+          {"menu":"피자"},
+          {"menu":"스파게티"},
+          {"menu":"콜라"}
+      ]
+    },
+    {
+      "storeId": 8,
+      "storeName": "빨라햄버거",
+      "menus": [
+          {"menu":"햄버거"},
+          {"menu":"감자튀김"},
+          {"menu":"치즈스틱"}
+      ]
+    },
+    {
+      "storeId": 9,
+      "storeName": "일등일식",
+      "menus": [
+          {"menu":"초밥"},
+          {"menu":"우동"},
+          {"menu":"생맥주"}
+      ]
+    }
+]

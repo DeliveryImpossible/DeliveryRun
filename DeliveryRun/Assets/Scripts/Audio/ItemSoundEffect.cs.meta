@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 6ef98fb4fdea11547a7cccd309ae65e1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioCoin: {fileID: 8300000, guid: 391908b58e627914ea577a13304a5189, type: 3}
+  - audioBeg: {fileID: 8300000, guid: d29ee629e104c9c48a6342b146355b20, type: 3}
+  - audioBomb: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  - audioBooster: {fileID: 8300000, guid: 7e9ee6dc04a5d40d1a5dfc4beb9865e7, type: 3}
+  - audioHeal: {fileID: 8300000, guid: ecfa1f74f3ffda8449d4b76b5b7d31f6, type: 3}
+  - audioIncreaseTime: {fileID: 8300000, guid: 8773868887102484fb629c2d87575142, type: 3}
+  - audioSkull: {fileID: 8300000, guid: 2fbce70ae2186dd4bbfb8c3b932f96a8, type: 3}
+  - audioEnemy: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+  - audioSource: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
