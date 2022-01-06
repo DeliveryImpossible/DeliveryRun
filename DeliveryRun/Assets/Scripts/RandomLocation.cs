@@ -4,41 +4,44 @@ using UnityEngine;
 
 public class RandomLocation : MonoBehaviour
 {
-    GameObject[] enemiesRandomLocations;
-    GameObject[] itemsRandomLocations;
-    GameObject[] enemies;
-    GameObject[] items;
-    int[] enemiesLocation;
-    int[] itemsLocation;
+    static GameObject[] enemiesRandomLocations;
+    static GameObject[] itemsRandomLocations;
+    static GameObject[] enemies;
+    static GameObject[] items;
+    static int[] enemiesLocation;
+    static int[] itemsLocation;
     
-    bool flag = true;
+    static bool flag = true;
    
     
     
-    void Start()
+    public static void CheckEnemy()
     {
         enemiesRandomLocations = GameObject.FindGameObjectsWithTag("RandomEnemyLocation");
-        itemsRandomLocations = GameObject.FindGameObjectsWithTag("RandomItemLocation");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        items = GameObject.FindGameObjectsWithTag("Item");
-
         enemiesLocation = new int[enemies.Length];
+       
+        InitLocation(enemiesLocation);
+        SelectLocation(enemies, enemiesRandomLocations, enemiesLocation);
+        
+    }
+
+    public static void CheckItem(){
+        itemsRandomLocations = GameObject.FindGameObjectsWithTag("RandomItemLocation");
+        items = GameObject.FindGameObjectsWithTag("Item");
         itemsLocation = new int[items.Length];
 
-        InitLocation(enemiesLocation);
         InitLocation(itemsLocation);
-
-        SelectLocation(enemies, enemiesRandomLocations, enemiesLocation);
         SelectLocation(items, itemsRandomLocations, itemsLocation);
     }
 
-    void InitLocation(int[] locations){
+    static void InitLocation(int[] locations){
         for(int i = 0; i< locations.Length; i++){
             locations[i] = -1;
         }
     }
 
-    void SelectLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
+    static void SelectLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
         for(int i = 0; i < objectArray.Length; i++){
             int randomNumber = Random.Range(0, randomLocations.Length);
             
@@ -60,7 +63,7 @@ public class RandomLocation : MonoBehaviour
         TransferLocation(objectArray, randomLocations, selectedLocations);
     }
 
-    void TransferLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
+    static void TransferLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
         for(int i = 0; i< objectArray.Length; i++){
             objectArray[i].transform.position = randomLocations[selectedLocations[i]].transform.position;
         }
