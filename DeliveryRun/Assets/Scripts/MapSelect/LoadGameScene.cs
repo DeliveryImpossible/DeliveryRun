@@ -17,11 +17,13 @@ namespace DifficultSet
 public class LoadGameScene : MonoBehaviour
 {
     public GameObject mapSelectAskPanel;
-    private GetPackedItems getPackedItems;
     private int[] packedItemIds;
     private Text askPanelText;
     private JsonData itemDataJson;
     private int nowDifficulty;
+
+    private AudioManager audioManager;
+    private GetPackedItems getPackedItems;
 
     private void Start()
     {
@@ -29,6 +31,7 @@ public class LoadGameScene : MonoBehaviour
         packedItemIds = getPackedItems.GetPackedItemIDs();
         askPanelText = mapSelectAskPanel.transform.GetChild(1).GetChild(0).GetComponent<Text>();
         itemDataJson = GetComponent<ItemSaveLoad>().ItemInfoLoad();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void AskPanelInDifficultCircle(int difficulty)
@@ -56,17 +59,18 @@ public class LoadGameScene : MonoBehaviour
 
         askPanelText.text += "<맵>\n";
         askPanelText.text += MapName.GetMapName(MapSelectIndex.currentMap) + " - ";
-        askPanelText.text += DifficultSet.Difficulty.difficultyNameString[difficulty];
+        askPanelText.text += DifficultSet.Difficulty.difficultyNameString[difficulty-1];
         askPanelText.text += "\n\n이대로 시작하시겠습니까?";
     }
 
 
     public void LoadGame()
     {
-        int currentScene = MapSelectIndex.currentMap;
+        int mapToLaod = MapSelectIndex.currentMap;
         NowGameMap.nowPlayingDifficulty = nowDifficulty;
         NowGameMap.nowPlayingMap = MapSelectIndex.currentMap;
-        SceneManager.LoadScene(currentScene + 4);
+        audioManager.ChangeMusic(mapToLaod);
+        SceneManager.LoadScene(mapToLaod + 4);
     }
 
     public void Cancle()

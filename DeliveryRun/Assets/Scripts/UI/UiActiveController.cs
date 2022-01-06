@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class UiActiveController : MonoBehaviour
 {
+    public bool isStart;
     GameObject UI;
-    // Start is called before the first frame update
+    GameObject targetManager;
+
     void Awake()
     {
-
+        targetManager = GameObject.FindGameObjectWithTag("TargetManager");
+        isStart = false;
         UI = GameObject.FindGameObjectWithTag("UI");
         UI.SetActive(false);
         
@@ -18,5 +21,8 @@ public class UiActiveController : MonoBehaviour
     public void SwitchGameUI()
     {
         UI.SetActive(true);
+        isStart = true;
+        CheckDeliverZone checkDeliverZone = targetManager.GetComponent<CheckDeliverZone>();
+        checkDeliverZone.MakeStorePos();
     }
 }

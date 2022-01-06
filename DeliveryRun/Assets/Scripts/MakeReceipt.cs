@@ -8,16 +8,20 @@ using UnityEngine.UI;
 public class MakeReceipt : MonoBehaviour
 {
     public GameObject[] totalStoreObj;
-    public int[] selectedStoreIndex;
+    int[] selectedStoreIndex;
     public GameObject[] selectedStoreObj;
     public int[] selectedMenuIndex;
 
-    int storeToDeliverNum;
+    protected int storeToDeliverNum;
     int totalStoreNum;
-    
-    public GameObject[] menuPanel;
-    public Transform missionMenuPanel;
+    int selectedMenu;
+
+    Transform missionMenuPanel;
     public GameObject[] totalMenuObj;
+    public GameObject itemPanelObj;
+
+    GameObject startMapItemPanel;
+    GameObject[] startMapItems;
 
     private void Start()
     {
@@ -27,10 +31,21 @@ public class MakeReceipt : MonoBehaviour
         selectedStoreIndex = new int[storeToDeliverNum];
         selectedMenuIndex = new int[storeToDeliverNum];
         selectedStoreObj = new GameObject[storeToDeliverNum];
-        
+
+        startMapItemPanel = GameObject.FindGameObjectWithTag("TargetPanel");
+        startMapItems = GetChildren(startMapItemPanel);
+
         makeRandomStoreIndex();
         makeRandomStoreObject();
         makeRandomGoods(selectedStoreIndex);
+        SetStartMapImg();
+    }
+    private void SetStartMapImg()
+    {
+        for (int num = 0; num < storeToDeliverNum; num++)
+        {
+            startMapItems[num].GetComponent<Image>().sprite = totalMenuObj[selectedMenuIndex[num]].GetComponent<Image>().sprite;
+        }
         
     }
 
@@ -41,10 +56,9 @@ public class MakeReceipt : MonoBehaviour
         {
             selectedStoreObj[i] = totalStoreObj[selectedStoreIndex[i]];
         }
-        Debug.Log("MR에서 .. " + totalStoreObj.Length);
     }
 
-    public GameObject[] GetChildren(GameObject parent)
+    private GameObject[] GetChildren(GameObject parent)
     {
         GameObject[] children = new GameObject[parent.transform.childCount];
 
@@ -56,7 +70,7 @@ public class MakeReceipt : MonoBehaviour
         return children;
     }
 
-    public void makeRandomStoreIndex() // 랜덤으로 가게 인덱스 뽑기
+    private void makeRandomStoreIndex()
     {
         bool isSame;
         for (int i = 0; i < storeToDeliverNum; i++)
@@ -78,18 +92,24 @@ public class MakeReceipt : MonoBehaviour
             }
         }
     }
-    
-    public void makeRandomGoods(int [] DeliverTargetArr)
+
+    private void makeRandomGoods(int [] DeliverTargetArr)
     {
-        totalMenuObj = GetChildren(GameObject.FindGameObjectWithTag("Goods"));
+        totalMenuObj = GetChildren(itemPanelObj);
         int menu = Random.Range(0, 3);
 
         for (int i = 0; i < storeToDeliverNum; i++)
         { 
-            int selectedMenu = DeliverTargetArr[i] * 3 + menu;
+            selectedMenu = DeliverTargetArr[i] * 3 + menu;
             selectedMenuIndex[i] = selectedMenu;
             totalMenuObj[selectedMenu].transform.SetParent(missionMenuPanel);
-            menuPanel[DeliverTargetArr[i]].GetComponent<Image>().sprite = totalMenuObj[selectedMenuIndex[i]].GetComponent<Image>().sprite;
+            //AttachItemImg(missionMenuPanel.GetComponent<Image>().sprite);
+            missionMenuPanel.GetComponent<Image>().sprite = totalMenuObj[selectedMenu].GetComponent<Image>().sprite;
         }
+    }
+
+    private void AttachItemImg(Sprite toAttachPanel)
+    {
+        toAttachPanel = totalMenuObj[selectedMenu].GetComponent<Image>().sprite;
     }
 }

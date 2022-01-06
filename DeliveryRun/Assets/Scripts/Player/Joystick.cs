@@ -19,8 +19,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public GameObject DeliverPanel;
     
     public float force;
-    public AudioClip audioJump;
-    public AudioSource audioSource;
 
 
 
@@ -37,7 +35,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
         transform.position = eventData.position;
         transform.localPosition = 
-            Vector2.ClampMagnitude(eventData.position - (Vector2)pad.position, pad.rect.width * 0.3f); // ClampMagnitude- 벡터 최대 길이 제한
+            Vector2.ClampMagnitude(eventData.position - (Vector2)pad.position, pad.rect.width * 0.3f); 
 
         moveForward = new Vector3(0, 0, transform.localPosition.y).normalized; // player 이동 방향
         moveRotate = new Vector3(0, transform.localPosition.x, 0).normalized; // player 회전 방향
@@ -68,7 +66,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         StartCoroutine("PlayerMove");
     }
 
-    IEnumerator PlayerMove(){ // 따로 빼기
+    IEnumerator PlayerMove(){
         while(true){
             // 이동
             player.Translate(moveForward * moveSpeed * Time.deltaTime);

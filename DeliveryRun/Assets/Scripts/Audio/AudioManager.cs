@@ -3,31 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class AudioManager : MonoBehaviour
 {
-    GameObject backgroundMusic;
-    AudioSource backMusic;
-    public static int scene_flag = 0; // scene 0_GetPlayerName
+    public const int main = 0;
+    public const int level1 = 1;
+    public const int level2 = 2;
+    public const int level5 = 3;
+    public const int success = 4;
+    public const int fail = 5;
+
+    private AudioSource musicSource;
+    public static int scene_flag = 0;
     void Awake()
     {
-        backgroundMusic = GameObject.Find("BackgroundMusic");
-        backMusic = backgroundMusic.GetComponent<AudioSource>();
-        DontDestroyOnLoad(gameObject);  
+        musicSource = transform.GetChild(main).GetComponent<AudioSource>();
+        musicSource.Play();
+        DontDestroyOnLoad(gameObject);
     }
 
-    void Update(){
-        if(SceneManager.GetActiveScene().buildIndex == 5 || SceneManager.GetActiveScene().buildIndex == 6 || SceneManager.GetActiveScene().buildIndex == 7){ // 게임 scene들
-           backMusic.Stop();
-        }
-        if(backMusic.isPlaying) return; // 배경음악이 재생되고 있으면 패스
-        else{
-            if(SceneManager.GetActiveScene().buildIndex == 1){ // scene 1_start(이름 받지 않고 바로 시작)
-            backMusic.Play();
-            DontDestroyOnLoad(gameObject); 
-            scene_flag++;
-            }
-        }    
-            
+    public void ChangeMusic(int audioNum)
+    {
+        scene_flag = audioNum;
+        musicSource.Stop();
+        musicSource = transform.GetChild(audioNum).GetComponent<AudioSource>();
+        musicSource.Play();
     }
-    
+
 }

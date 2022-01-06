@@ -7,19 +7,24 @@ using UnityEngine.SceneManagement;
 public class CircularTimerController : MonoBehaviour
 {
     public static float limitTime = 80f;
-    public Text timerText; 
-    public Image loadingBar;
-    public GameObject inGamePlayer;
-    public GameObject gameOver;
+    private Text timerText;
+    private Image loadingBar;
     private float time;
-   
+    private InGameItems inGameItems;
+
+    private void Awake()
+    {
+        timerText = transform.GetChild(1).GetChild(0).GetComponent<Text>();
+        loadingBar = transform.GetChild(0).GetComponent<Image>();
+        inGameItems = GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>();
+    }
     void Start()
     {
         time = limitTime;
-        if(InGameItems.haveIncreaseItem == true){ 
-            InGameItems.UseIncreaseTimeItem();
+        if(InGameItems.haveIncreaseItem == true){
+            inGameItems.UseIncreaseTimeItem();
             InGameBag usehaveIncreaseItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>(); 
-            usehaveIncreaseItemInSlot.inGameRemoveIncreaseTime(); 
+            usehaveIncreaseItemInSlot.InGameRemoveIncreaseTime(); 
             InGameItems.haveIncreaseItem = false;
         }
     }

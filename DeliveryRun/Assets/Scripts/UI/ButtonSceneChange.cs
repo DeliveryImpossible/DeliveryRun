@@ -8,8 +8,10 @@ public class ButtonSceneChange : MonoBehaviour
 
     private GameObject thisSceneManager;
     private int nowSceneIndex;
+    private AudioManager audioManager;
     private void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         nowSceneIndex = SceneManager.GetActiveScene().buildIndex;
         thisSceneManager = GameObject.FindGameObjectWithTag("SpecialManager");
     }
@@ -18,6 +20,8 @@ public class ButtonSceneChange : MonoBehaviour
         Save();
         if(nowSceneIndex == ScenesNameConst.inventoryScene)
             SavePackedItems(true);
+        if (AudioManager.scene_flag != 0)
+            audioManager.ChangeMusic(AudioManager.main);
         SceneManager.LoadScene(ScenesNameConst.startScene);
     }
     public void Store()
@@ -36,6 +40,8 @@ public class ButtonSceneChange : MonoBehaviour
         Save();
         if (nowSceneIndex == ScenesNameConst.inventoryScene)
             SavePackedItems(false);
+        if(AudioManager.scene_flag!=0)
+            audioManager.ChangeMusic(AudioManager.main);
         SceneManager.LoadScene(ScenesNameConst.mapSelectionScene);
     }
 

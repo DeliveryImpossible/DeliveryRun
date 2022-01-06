@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public static float maxRange = 3f, minRange = 3f;
     public float movespeed;
     private int direction = -1; 
     float originalPosition; 
     
 
     private Animator animator;
-    private int angle;
+    private float time = 0;
 
 
     void Start(){
@@ -24,25 +23,28 @@ public class EnemyMove : MonoBehaviour
 
     void Update(){
         transform.position += new Vector3(movespeed * Time.deltaTime * direction, 0, 0);
-        CheckRotateRange(transform.position.x);
+        checkTime();
     }
 
-    private void CheckRotateRange(float enemyposition){ 
-            if(enemyposition >= originalPosition + maxRange || enemyposition <= originalPosition - minRange){
-                RotateEnemy();
-            }
+
+    private void checkTime(){
+        time += Time.deltaTime;
+        if(time >= 12f){
+            RotateEnemy();
+            time = 0;
+        }
+    }
+
+    private void RotateEnemy(){ 
+        direction *= -1;
+        transform.Rotate(0, 180, 0);
     }
 
     void OnCollisionEnter(Collision other)
     {
         if(other.transform.tag == "Player"){
-            RotateEnemy();
+            Destroy(gameObject);
         }
-    }
-
-    private void RotateEnemy(){ // 반대 방향으로 이동
-        direction *= -1;
-        transform.Rotate(0, 180, 0);
     }
     
 }

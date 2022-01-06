@@ -21,7 +21,10 @@ public class LoadInventory : LoadItems
         goods = GameObject.FindGameObjectsWithTag(selectIndex.index.ToString());
         itemCount = GetComponent<ItemSaveLoad>().GetItemCount();
 
+
         int selectIndexNum = (int)selectIndex.index;
+
+        ResetGoods(selectIndexNum);
 
         if (selectIndexNum == ((int)InventoryIndex.Item))
             RefreshItem();

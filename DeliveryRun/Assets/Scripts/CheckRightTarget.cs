@@ -19,13 +19,15 @@ public class CheckRightTarget : MakeReceipt
     public GameObject successPanel;
     public GameObject failPanel;
 
-    public AudioClip audioRight;
-    public AudioClip audioWrong;
-    public AudioSource audioSource;
+    private InGameItems inGameItems;
+    private SoundEffectManager soundEffectManager;
+
     private void Start()
     {
         FoundObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Target"));
         player = GameObject.FindGameObjectWithTag("Player");
+        inGameItems = player.GetComponent<InGameItems>();
+        soundEffectManager = GameObject.FindGameObjectWithTag("EffectAudioManager").GetComponent<SoundEffectManager>();
         successPanel.SetActive(false);
         failPanel.SetActive(false);
     }
@@ -68,54 +70,59 @@ public class CheckRightTarget : MakeReceipt
                     }
 
                 }
-                if (isRightItem())
+
+                if (IsRightItem())
                 {
-                    audioSource.Play();
-                    InGameSave.SetSuccessNum(1);
-                    InGameSave.SetCoin(500);
-
-                    if (deliverAll())
-                    {
-                        InGameSave.SetTime(GameObject.Find("Timer").GetComponent<CircularTimerController>().ReturnTime());
-                        SceneManager.LoadScene("10_Result");
-                    }
-
-                    selectedButton.interactable = false;
-                    successPanel.SetActive(true);
+                    Success();
                     return;
                 }
                 else
                 {
-                    audioSource.Play();
-                    if(InGameItems.haveBegItem == true){
-                        InGameItems.haveBegItem = false;
-                        Invoke("UseBeg", 1f);
-                    }else{
-                        failPanel.SetActive(true);
-                        InGameItems.UseSkullItem();
-                    }
+                    Fail();
                     return;
                 }
             }
         }
 
-        audioSource.Play();
-        if(InGameItems.haveBegItem == true){
-            InGameItems playerBegItem = GameObject.Find("Player").GetComponent<InGameItems>();
-            playerBegItem.HaveBegItem();
-            }else{
-            failPanel.SetActive(true);
-            InGameItems.UseSkullItem();
+        Fail();
+    }
+    private void Success()
+    {
+        soundEffectManager.OnEffectSound(SoundEffectManager.rightGood);
+        InGameSave.SetSuccessNum(1);
+        InGameSave.SetCoin(500);
+
+        if (DeliverAll())
+        {
+            InGameSave.SetTime(GameObject.Find("Timer").GetComponent<CircularTimerController>().ReturnTime());
+            SceneManager.LoadScene("10_Result");
         }
-        failPanel.SetActive(true);
+
+        selectedButton.interactable = false;
+        successPanel.SetActive(true);
+    }
+    private void Fail()
+    {
+        soundEffectManager.OnEffectSound(SoundEffectManager.wrongGood);
+
+        if (InGameItems.haveBegItem == true)
+        {
+            inGameItems.HaveBegItem();
+            //새로고침 필요 여부 확인
+        }
+        else
+        {
+            failPanel.SetActive(true);
+            inGameItems.UseSkullItem();
+        }
     }
 
-    bool isRightItem()
+    bool IsRightItem()
     {
         return ((targetNum * 3 + 0) <= selectedItemIndex) && ((targetNum * 3 + 2) >= selectedItemIndex);
     }
 
-    bool deliverAll()
+    bool DeliverAll()
     {
         return InGameSave.GetSuccessNum() == NowGameMap.nowPlayingDifficulty + 2;
     }

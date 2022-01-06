@@ -8,139 +8,185 @@ using UnityEngine.UI;
 
 public class InGameBag : MonoBehaviour
 {
-    private List<GameObject> itemSlots = new List<GameObject>();
+    private List<GameObject> packedItemList = new List<GameObject>();
 
-    private int noItemInSlot = 0;
-    // private int boosterID = 1;
-    // private int coinID = 2; 
-    private int increaseTimeID = 3;
-    private int begID = 4;
-    private int healID = 5;
-    private int bombID = 6;
-    // private int skullID = 7; 
-    private int totalItemsAmount = 7;
+    private const int noItemInSlot = 0;
+    private const int boosterID = 1;
+    private const int coinID = 2; 
+    private const int increaseTimeID = 3;
+    private const int begID = 4;
+    private const int healID = 5;
+    private const int bombID = 6;
+    private const int skullID = 7; 
+    private const int totalItemsAmount = 7;
 
     int[] inInventoryBagItemsIDs;
-    public GameObject inGameBagSlots; 
+    public GameObject inGameBagSlots;
 
-    public AudioClip audioClickItem;
-    public AudioSource audioSource;
+    private SoundEffectManager soundEffectManager;
+    private InGameItems inGameItems;
 
     private void Start()
     {
         GameObject[] allItems = GameObject.FindGameObjectsWithTag("Item");
-
         GameObject manager = GameObject.FindGameObjectWithTag("Manager");
         inInventoryBagItemsIDs = manager.GetComponent<GetPackedItems>().GetPackedItemIDs();
-        
-        if(inInventoryBagItemsIDs[0] != 0){
-            for(int i = 0; i<totalItemsAmount; i++){
-                if(allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[0] || allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[1] || allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[2]){
-                    itemSlots.Add(allItems[i]);
-                }
-            }
-        }
-        Refresh();
-    }
 
-    
+        soundEffectManager = GameObject.FindGameObjectWithTag("EffectAudioManager").GetComponent<SoundEffectManager>();
+        inGameItems = GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>();
+
+        PackedItemArrToList(allItems);
+        InGameBagRefresh();
+    }
 
     public void TabAndUseItem(int index){ 
-        if(index >= itemSlots.Count){
+        int gameSlotID = inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id;
+
+        if (index >= packedItemList.Count){
             return;
         }
-        else if(inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id != noItemInSlot && inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id != increaseTimeID &&inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id != begID && inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id != healID){
-            audioSource.clip = audioClickItem;
-            audioSource.Play();
+        else if(CheckAutoItem(gameSlotID))
+        {
+            soundEffectManager.OnEffectSound(SoundEffectManager.itemClick);
 
-            switch(inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id){
-                case 1: 
-                    InGameItems.UseBoosterItem();
-                    Invoke("ReturnSpeed", 4f);
+            switch (gameSlotID)
+            {
+                case 1:
+                    inGameItems.UseBoosterItem();
                     break;
                 case 2:
-                    InGameItems.AddCoinItem();
+                    inGameItems.AddCoinItem();
                     break;
                 case 6:
-                    InGameItems.UseBombItem();
+                    inGameItems.UseBombItem();
                     break;
-                case 7:     
-                    InGameItems.UseSkullItem();
+                case 7:
+                    inGameItems.UseSkullItem();
                     break; 
             }
-            itemSlots.RemoveAt(index);
-            Refresh();
+
+            packedItemList.RemoveAt(index);
+            InGameBagRefresh();
         }
     }
 
-    private void ReturnSpeed(){ 
-        Joystick.moveSpeed -= InGameItems.speedUpAmout;
-    }
-
-    private void Refresh(){ // 슬롯에 새고해 보여주기
+    public void InGameBagRefresh(){
         int i = 0;
-        for(; i<itemSlots.Count; i++){
-            Debug.Log(itemSlots.Count);
-            Image inGameitemInBag = inGameBagSlots.transform.GetChild(i).GetChild(0).GetComponent<Image>(); 
+        bool isAutoItem = false;
 
-            if(itemSlots[i].GetComponent<ItemInfo>().id == bombID){
-                inGameitemInBag.sprite = itemSlots[i].transform.GetChild(5).GetComponent<Image>().sprite;
-            }
-            else{
-                inGameitemInBag.sprite = itemSlots[i].transform.GetChild(1).GetComponent<Image>().sprite; 
-                // beg, heal, increasetime 아이템 있는 경우 
-                if(itemSlots[i].GetComponent<ItemInfo>().id == begID){ 
-                    InGameItems.haveBegItem = true;
-                }
-                if(itemSlots[i].GetComponent<ItemInfo>().id == healID){ 
-                    InGameItems.haveHealItem = true;
-                }
-                if(itemSlots[i].GetComponent<ItemInfo>().id == increaseTimeID){ 
-                    InGameItems.haveIncreaseItem = true;
-                }
-            }
-                
-            inGameitemInBag.color = new Color(1, 1, 1, 1);
+        Transform slot;
+        Image inGameitemInBag;
 
-            inGameBagSlots.transform.GetChild(i).GetComponent<ItemInfo>().id = itemSlots[i].transform.GetComponent<ItemInfo>().id;
+        for (; i<packedItemList.Count; i++)
+        {
+            slot = inGameBagSlots.transform.GetChild(i);
+            slot.GetChild(1).gameObject.SetActive(false);
+            slot.gameObject.GetComponent<Button>().interactable = true;
+
+            inGameitemInBag = slot.GetChild(0).GetComponent<Image>(); 
+
+            if(packedItemList[i].GetComponent<ItemInfo>().id == bombID){
+                inGameitemInBag.sprite = packedItemList[i].transform.GetChild(5).GetComponent<Image>().sprite;
+            }
+            else
+            {
+                inGameitemInBag.sprite = packedItemList[i].transform.GetChild(1).GetComponent<Image>().sprite;
+                isAutoItem = CheckAutoItem(i);
+            }
+
+            if (isAutoItem)
+            {
+                slot.GetChild(1).gameObject.SetActive(true);
+                slot.gameObject.GetComponent<Button>().interactable = false;
+
+                inGameitemInBag.color = new Color(1, 1, 1, (float)0.5);
+            }
+            else
+            {
+                inGameitemInBag.color = new Color(1, 1, 1, 1);
+            }
+
+
+            inGameBagSlots.transform.GetChild(i).GetComponent<ItemInfo>().id = packedItemList[i].transform.GetComponent<ItemInfo>().id;
 
         }
 
-        while(i<3){
-            Image inGameitemInBag = inGameBagSlots.transform.GetChild(i).GetChild(0).GetComponent<Image>();
+        while(i<3)
+        {
+            slot = inGameBagSlots.transform.GetChild(i);
+            slot.GetChild(1).gameObject.SetActive(false);
+            slot.gameObject.GetComponent<Button>().interactable = false;
+
+            inGameitemInBag = slot.GetChild(0).GetComponent<Image>();
             inGameitemInBag.sprite = null;
             inGameitemInBag.color = new Color(0,0,0,0);
             i++;
         }
     }
-
-    
-    // heal, beg, IncreaseTime 아이템 자동 사용
-    public void RemoveHealInSlots(){ 
-        for(int i = 0; i<itemSlots.Count; i++){
-            if(itemSlots[i].GetComponent<ItemInfo>().id == healID){
-                itemSlots.Remove(itemSlots[i]);
+    private void PackedItemArrToList(GameObject[] allItems)
+    {
+        if (inInventoryBagItemsIDs[0] != 0)
+        {
+            for (int i = 0; i < totalItemsAmount; i++)
+            {
+                if (allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[0] || allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[1] || allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[2])
+                {
+                    packedItemList.Add(allItems[i]);
+                }
             }
         }
-        Refresh();
+    }
+
+    bool CheckAutoItem(int slotOrder)
+    {
+        if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == begID)
+        {
+            InGameItems.haveBegItem = true;
+            return true;
+        }
+        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == healID)
+        {
+            InGameItems.haveHealItem = true;
+            return true;
+        }
+        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == increaseTimeID)
+        {
+            InGameItems.haveIncreaseItem = true;
+            return true;
+        }
+        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == coinID)
+        {
+            InGameItems.haveCoinItem = true;
+            return true;
+        }
+        return false;
+    }
+
+    public void RemoveHealInSlots(){ 
+        for(int i = 0; i<packedItemList.Count; i++){
+            if(packedItemList[i].GetComponent<ItemInfo>().id == healID){
+                packedItemList.Remove(packedItemList[i]);
+            }
+        }
+        InGameBagRefresh();
     }
 
     public void RemoveBegInSlots(){
-        for(int i = 0; i<itemSlots.Count; i++){
-            if(itemSlots[i].GetComponent<ItemInfo>().id == begID){
-                itemSlots.Remove(itemSlots[i]);
+        for(int i = 0; i<packedItemList.Count; i++){
+            if(packedItemList[i].GetComponent<ItemInfo>().id == begID){
+                packedItemList.Remove(packedItemList[i]);
             }
         }
-        Refresh();
+        InGameBagRefresh();
     }
 
-    public void inGameRemoveIncreaseTime(){
-        for(int i = 0; i<itemSlots.Count; i++){
-            if(itemSlots[i].GetComponent<ItemInfo>().id == increaseTimeID){
-                itemSlots.Remove(itemSlots[i]);
+    public void InGameRemoveIncreaseTime(){
+        for(int i = 0; i<packedItemList.Count; i++){
+            if(packedItemList[i].GetComponent<ItemInfo>().id == increaseTimeID){
+                packedItemList.Remove(packedItemList[i]);
             }
         }
-        Refresh();
+        InGameBagRefresh();
     }
    
     

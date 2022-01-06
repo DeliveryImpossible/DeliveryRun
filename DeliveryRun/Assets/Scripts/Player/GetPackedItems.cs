@@ -19,6 +19,7 @@ public class GetPackedItems : MonoBehaviour
         {
             string tempItemIdsString = File.ReadAllText(FilePath.savePath + "/PackedItemID.json");
             packedItemIDs = JsonMapper.ToObject<int[]>(tempItemIdsString);
+
         }
         else packedItemIDs = new int[] { 0, 0, 0 };
     }

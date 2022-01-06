@@ -16,12 +16,11 @@ public class GetResult : MonoBehaviour
     private int exp;
     private bool levelUp;
 
-    //###오디오 소스 밖으로 빼서 하나로 모을 것
-    public AudioSource myAudio;
-    public AudioClip audioSuccess;
-    public AudioClip audioFailed;
+    private AudioManager audioManager;
+
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         ResetStars();
 
         coin = InGameSave.GetCoin();
@@ -43,13 +42,11 @@ public class GetResult : MonoBehaviour
 
         Text gameResult = rewardBox.transform.GetChild(1).GetComponent<Text>();
         if (win){
-            //myAudio.clip = audioSuccess;
-            myAudio.Play();
+            audioManager.ChangeMusic(AudioManager.success);
             gameResult.text = "SUCCESS";
         }
         else{
-            //myAudio.clip = audioFailed;
-            myAudio.Play();
+            audioManager.ChangeMusic(AudioManager.fail);
             gameResult.text = "FAIL";
         }
             
@@ -83,7 +80,6 @@ public class GetResult : MonoBehaviour
 
     private bool ReflectResult()
     {
-        
         PlayerInfo.AddCoin(coin);
         bool up = PlayerInfo.AddExp(exp);
         return up;
@@ -134,8 +130,12 @@ public class GetResult : MonoBehaviour
 
     private int CalculateCoin()
     {
-        if (ResetGame.isCoin)
+        if (InGameItems.haveCoinItem)
+        {
+            GameObject doubleCoinSign = rewardBox.transform.GetChild(2).GetChild(0).GetChild(1).gameObject;
+            doubleCoinSign.SetActive(true);
             coin *= 2;
+        }
         return coin;
     }
 

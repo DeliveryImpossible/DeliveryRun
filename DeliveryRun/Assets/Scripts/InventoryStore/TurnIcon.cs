@@ -7,7 +7,6 @@ public class TurnIcon : MonoBehaviour
 
     private SelectIndex selectIndex;
 
-    string indexString = "Item";
     float angle = 0f;
     GameObject[] turningObjs;
     private void Awake()
@@ -18,7 +17,6 @@ public class TurnIcon : MonoBehaviour
     private void Start()
     {
         angle = 0f;
-        indexString = "Item";
     }
 
     void Update()

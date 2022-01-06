@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class InGameItems : MonoBehaviour
 {
-    public static float speedUpAmout = 2f;
+
+    public static float speedUpAmout = 3f;
     private static float changeTime = 7f;
+
     public static GameObject healItem;
     public static GameObject begItem;
 
     public static bool haveHealItem = false; 
     public static bool haveBegItem = false; 
     public static bool haveIncreaseItem = false; 
+    public static bool haveCoinItem = false;
+
+    private InGameBag inGameBag;
 
 
 
@@ -23,6 +28,8 @@ public class InGameItems : MonoBehaviour
         
         begItem = GameObject.Find("node_id58");
         begItem.SetActive(false);
+
+        inGameBag = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InGameBag>();
     }
 
     void Update()
@@ -32,52 +39,58 @@ public class InGameItems : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "Item"){
+        if(collision.gameObject.CompareTag("Item"))
+        {
             switch(collision.gameObject.name){
                 case "Booster":
                     UseBoosterItem();
                     Destroy(collision.gameObject);
-                    Invoke("ReturnSpeed", 3f);
                     break;
+
                 case "Coin":
                     AddCoinItem();
                     Destroy(collision.gameObject);
                     break;
+
                 case "Skull":
                     UseSkullItem();
                     Destroy(collision.gameObject);
-                    break;            
+                    break;     
+                    
                 case "Bomb": 
                     UseBombItem();
                     Destroy(collision.gameObject);
                     break;
+
                 case "IncreaseTime":
                     UseIncreaseTimeItem();
                     Destroy(collision.gameObject);
-                    break;      
+                    break;    
+                    
                 default:
                     break;
             }
         }
     }
 
-    public static void UseBoosterItem(){ 
+    public void UseBoosterItem(){ 
         Joystick.moveSpeed += speedUpAmout;
+        Invoke("ReturnSpeed", changeTime);
     }
 
-    public static void AddCoinItem(){
+    public void AddCoinItem(){
         InGameSave.SetCoin(100);
     }
 
-    public static void UseSkullItem(){
+    public void UseSkullItem(){
         CircularTimerController.limitTime -= changeTime;
     }
 
-    public static void UseIncreaseTimeItem(){
+    public void UseIncreaseTimeItem(){
         CircularTimerController.limitTime += changeTime;
     }
 
-    public static void UseBombItem(){
+    public void UseBombItem(){
         CheckBombZone check = GameObject.Find("GameManager").GetComponent<CheckBombZone>();
         check.BombZone();
     }
@@ -95,15 +108,21 @@ public class InGameItems : MonoBehaviour
     public void HaveBegItem(){
         haveBegItem = false;
         Invoke("UseBegItem", 1f);
+        
     }
 
     void UseBegItem(){
-        InGameBag useBegItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>();
-        useBegItemInSlot.RemoveBegInSlots();
+        inGameBag.RemoveBegInSlots();
     }
 
-    private void ReturnSpeed(){
+    private void ReturnSpeed()
+    {
         Joystick.moveSpeed -= speedUpAmout;
+    }
+
+    public void InGameBagRefresh()
+    {
+        inGameBag.InGameBagRefresh();
     }
 
 

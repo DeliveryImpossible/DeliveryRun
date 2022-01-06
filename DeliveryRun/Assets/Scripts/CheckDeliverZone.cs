@@ -7,44 +7,64 @@ public class CheckDeliverZone : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] totalStoreObj;
-    Vector3[] totalStorePos;
+    public Vector3[] totalStorePos;
     Vector3 playerPos;
-    int distancePlayerToStore;
-
+    int distancePlayerToStore = 5;
+    UiActiveController uac;
     public Button Deliverbtn;
+
+    GameObject targetManger;
+    GameObject gameManager;
+
+
 
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        targetManger = GameObject.FindGameObjectWithTag("TargetManager");
         player = GameObject.FindGameObjectWithTag("Player");
-        MakeStorePos();
+        uac = gameManager.GetComponent<UiActiveController>();
+        
     }
 
     void Update()
     {
-        playerPos = player.gameObject.transform.position;
+        //InteractDeliverBtn();
+        if (uac.isStart)
+        {
+            playerPos = player.gameObject.transform.position;
+            if (uac.isStart)
+            {
+                if (IsDeliverZone(playerPos))
+                {
+                    Deliverbtn.interactable = true;
+                }
+                else
+                {
+                    Deliverbtn.interactable = false;
+                }
+            }
+        }
 
-        if (isDeliverZone(playerPos))
-        {
-            Deliverbtn.interactable = true;
-        }
-        else
-        {
-            Deliverbtn.interactable = false;
-        }
     }
 
     public void MakeStorePos()
     {
-        MakeReceipt makeReceipt = gameObject.GetComponent<MakeReceipt>();
-        Debug.Log("왜 범위 밖이니" + makeReceipt.totalStoreObj.Length);
+        MakeReceipt makeReceipt = targetManger.GetComponent<MakeReceipt>();
         totalStorePos = new Vector3[9];
         for (int i = 0; i < 9; i++)
         {
-            totalStorePos[i] = totalStoreObj[i].gameObject.transform.position;
+            totalStorePos[i] = makeReceipt.totalStoreObj[i].gameObject.transform.position;
         }
     }
 
-    public bool isDeliverZone(Vector3 playerPos)
+    public void InteractDeliverBtn()
+    {
+        
+        
+    }
+
+    public bool IsDeliverZone(Vector3 playerPos)
     {
         bool flag = false;
         float distance;

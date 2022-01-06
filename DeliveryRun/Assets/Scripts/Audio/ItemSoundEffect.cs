@@ -13,12 +13,15 @@ public class ItemSoundEffect : MonoBehaviour
     public AudioClip audioIncreaseTime;
     public AudioClip audioSkull;
     public AudioClip audioEnemy;
-    public AudioSource audioSource;
+
+    private AudioSource audioSource;
+    private InGameItems inGameItems;
 
 
 
     void Start(){
         audioSource = GetComponent<AudioSource>();
+        inGameItems = GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>();
     }
 
 
@@ -54,11 +57,10 @@ public class ItemSoundEffect : MonoBehaviour
             audioSource.Play();
             if(InGameItems.haveHealItem == true){
                 InGameItems.healItem.SetActive(true);
-                InGameItems playerHealItem = GameObject.Find("Player").GetComponent<InGameItems>();
-                playerHealItem.HaveHealItem();
+                inGameItems.HaveHealItem();
 
             }else{
-                InGameItems.UseSkullItem();
+                inGameItems.UseSkullItem();
             }
 
             InGameItems.haveHealItem = false;

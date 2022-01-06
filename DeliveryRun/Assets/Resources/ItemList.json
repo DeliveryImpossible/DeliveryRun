@@ -8,8 +8,8 @@
           { "ENG": "Booster" }
         ],
         "Detail": [
-          { "KOR": "기존 속도보다 1.5배 빠르게 달릴 수 있습니다." },
-          { "ENG": "It can run 1.5 times faster than the previous speed." }
+          { "KOR": "7초동안 1.5배 빠르게 달릴 수 있습니다. 원하는 위치에서 직접 사용하세요." },
+          { "ENG": "It can run 1.5 times faster than the previous speed in 7 seconds." }
         ],
         "Price" :  300
       },
@@ -20,7 +20,7 @@
           { "ENG": "Increasing Coin" }
         ],
         "Detail": [
-          { "KOR": "부자가 되고 싶다면 사용하세요. 버는 돈을 두배로 불려줍니다." },
+          { "KOR": "부자가 되고 싶다면 사용하세요. 버는 돈을 두배로 불려줍니다. 게임 결과에서 자동 사용됩니다." },
           { "ENG": "If you want to be rich, use it! Double the coin you eat." }
         ],
         "Price": 300
@@ -32,7 +32,7 @@
           { "ENG": "Increasing time" }
         ],
         "Detail": [
-          { "KOR": "시간을 n초 더 늘려줍니다. 보다 넉넉한 시간으로 배달할 수 있습니다." },
+          { "KOR": "시간을 n초 더 늘려줍니다. 보다 넉넉한 시간으로 배달할 수 있습니다. 증가 된 시간으로 게임을 시작합니다." },
           { "ENG": "fast" }
         ],
         "Price": 300
@@ -44,7 +44,7 @@
           { "ENG": "Forgiveness" }
         ],
         "Detail": [
-          { "KOR": "당신의 배달 실수로 인해 화난 손님에게 싹싹 빌어보세요. 손님의 기억에서 당신의 실수는 지워집니다." },
+          { "KOR": "당신의 배달 실수로 인해 화난 손님에게 싹싹 빌어보세요. 손님의 기억에서 당신의 실수는 지워집니다. 첫 번째 실수에서 자동 사용됩니다." },
           { "ENG": "Clears delivery mistakes once. Because you were forgiven by an angry customer." }
         ],
         "Price": 500
@@ -56,7 +56,7 @@
           { "ENG": "Recovering wounds" }
         ],
         "Detail": [
-          { "KOR": "이런, 장애물에 받았나요? 이 약은 당신이 입은 데미지를 한번 지워주니다." },
+          { "KOR": "이런, 장애물에 받았나요? 이 약은 당신이 입은 데미지를 한번 지워줍니다. 첫 번째 장애물에 자동 사용됩니다." },
           { "ENG": "Clears damage caused by obstacles once. You will be cured by this medicine." }
         ],
         "Price": 500
@@ -68,7 +68,7 @@
           { "ENG": "Bomb" }
         ],
         "Detail": [
-          { "KOR": "근처의 장애물을 다 지워줍니다. 하지만, 이로운 아이템도 없어질 수 있다는 것을 주의하세요." },
+          { "KOR": "근처의 장애물을 다 지워줍니다. 하지만, 이로운 아이템도 없어질 수 있다는 것을 주의하세요. 직접 터트리고 싶은 위치에서 사용합니다." },
           { "ENG": "It removes all the obstacles nearby. As a side effect, beneficial items also can be eliminated." }
         ],
         "Price": 300

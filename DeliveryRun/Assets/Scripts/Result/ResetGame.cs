@@ -6,25 +6,6 @@ using System.IO;
 
 public class ResetGame : MonoBehaviour
 {
-    public static bool isCoin;
-
-    //###코인아이템 있는지 확인하는 변수 이미 있을 것 같은데??
-    //##이 아이템 적용 코드 위치도 바꾸고 싶다
-    public void IsCoinItem()
-    {
-        isCoin = false;
-        int[] items = GameObject.FindGameObjectWithTag("Manager").GetComponent<GetPackedItems>().GetPackedItemIDs();
-        for (int i = 0; i < 3; i++)
-        {
-            if (items[i] == 2)
-            {
-                isCoin = true;
-                break;
-            }
-        }
-
-    }
-
     public void GameReset()
     {
 
