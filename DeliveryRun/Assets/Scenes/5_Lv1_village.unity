@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6217517, g: 0.7247285, b: 0.87652045, a: 1}
+  m_IndirectSpecularColor: {r: 0.62107295, g: 0.72377104, b: 0.8787574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19932,7 +19932,7 @@ GameObject:
   - component: {fileID: 843992522}
   m_Layer: 5
   m_Name: Panel Target
-  m_TagString: Target
+  m_TagString: TargetPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
