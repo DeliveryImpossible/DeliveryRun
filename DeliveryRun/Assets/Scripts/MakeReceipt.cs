@@ -21,7 +21,7 @@ public class MakeReceipt : MonoBehaviour
     public GameObject itemPanelObj;
 
     GameObject startMapItemPanel;
-    GameObject[] startMapItems;
+    public GameObject[] startMapItems;
 
     private void Start()
     {
@@ -38,7 +38,20 @@ public class MakeReceipt : MonoBehaviour
         makeRandomStoreIndex();
         makeRandomStoreObject();
         makeRandomGoods(selectedStoreIndex);
+        InitStartMapImg();
         SetStartMapImg();
+    }
+
+    private void InitStartMapImg()
+    {
+        for(int i=0; i<9; i++)
+        {
+            for(int j=0; j < storeToDeliverNum; j++)
+            {
+                if (i == selectedStoreIndex[j])
+                    startMapItems[i].SetActive(true);
+            }
+        }
     }
     private void SetStartMapImg()
     {
@@ -91,6 +104,7 @@ public class MakeReceipt : MonoBehaviour
                 if (!isSame) break;
             }
         }
+
     }
 
     private void makeRandomGoods(int [] DeliverTargetArr)
@@ -104,7 +118,7 @@ public class MakeReceipt : MonoBehaviour
             selectedMenuIndex[i] = selectedMenu;
             totalMenuObj[selectedMenu].transform.SetParent(missionMenuPanel);
             //AttachItemImg(missionMenuPanel.GetComponent<Image>().sprite);
-            missionMenuPanel.GetComponent<Image>().sprite = totalMenuObj[selectedMenu].GetComponent<Image>().sprite;
+            //missionMenuPanel.GetComponent<Image>().sprite = totalMenuObj[selectedMenu].GetComponent<Image>().sprite;
         }
     }
 
