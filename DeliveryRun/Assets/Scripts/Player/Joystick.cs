@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     public RectTransform pad;
-    public Transform player;
+    private Transform player;
     Vector3 moveForward;
     Vector3 moveRotate;
     static public float moveSpeed = 6f;
@@ -23,6 +23,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
 
     private void Awake(){
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = player.GetComponent<Animator>();
     }
     private void Start()
