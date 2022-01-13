@@ -24,17 +24,12 @@ public class InGameItems : MonoBehaviour
     void Start()
     {
         healItem = GameObject.Find("node_id226");
-        healItem.SetActive(false);
+        //healItem.SetActive(false);
         
         begItem = GameObject.Find("node_id58");
-        begItem.SetActive(false);
+        //begItem.SetActive(false);
 
         inGameBag = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InGameBag>();
-    }
-
-    void Update()
-    {
-        healItem.transform.Rotate(new Vector3(0,30, 0));
     }
 
     void OnTriggerEnter(Collider collision)
