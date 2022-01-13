@@ -36,6 +36,8 @@ public class ItemSpawner : MonoBehaviour
         for(int i = 0; i< n ; i++){
             Instantiate(gameObject, transform.position, transform.rotation);
         }
+
+        RandomLocation.CheckItem();
     }
 
     

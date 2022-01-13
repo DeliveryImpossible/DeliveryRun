@@ -20,14 +20,15 @@ public class InGameItems : MonoBehaviour
     private InGameBag inGameBag;
 
 
-
     void Start()
     {
         healItem = GameObject.Find("node_id226");
+
         //healItem.SetActive(false);
         
         begItem = GameObject.Find("node_id58");
         //begItem.SetActive(false);
+
 
         inGameBag = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InGameBag>();
     }
@@ -101,12 +102,13 @@ public class InGameItems : MonoBehaviour
     }
 
     public void HaveBegItem(){
+        begItem.SetActive(true);
         haveBegItem = false;
         Invoke("UseBegItem", 1f);
-        
     }
 
     void UseBegItem(){
+        begItem.SetActive(false);
         inGameBag.RemoveBegInSlots();
     }
 
