@@ -38,31 +38,26 @@ public class InGameItems : MonoBehaviour
         if(collision.gameObject.CompareTag("Item"))
         {
             switch(collision.gameObject.name){
-                case "Booster":
+                case "Booster(Clone)":
                     UseBoosterItem();
                     Destroy(collision.gameObject);
                     break;
-
-                case "Coin":
+                case "Coin(Clone)":
                     AddCoinItem();
                     Destroy(collision.gameObject);
                     break;
-
-                case "Skull":
+                case "Skull(Clone)":
                     UseSkullItem();
                     Destroy(collision.gameObject);
                     break;     
-                    
-                case "Bomb": 
+                case "Bomb(Clone)": 
                     UseBombItem();
                     Destroy(collision.gameObject);
                     break;
-
-                case "IncreaseTime":
+                case "IncreaseTime(Clone)":
                     UseIncreaseTimeItem();
                     Destroy(collision.gameObject);
                     break;    
-                    
                 default:
                     break;
             }
