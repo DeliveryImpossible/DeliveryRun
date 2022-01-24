@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6217517, g: 0.7247285, b: 0.87652045, a: 1}
+  m_IndirectSpecularColor: {r: 0.62107295, g: 0.72377104, b: 0.8787574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11078,7 +11078,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -19083,7 +19083,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -20689,7 +20689,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -21009,7 +21009,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -26681,6 +26681,11 @@ PrefabInstance:
       propertyPath: parentPanel
       value: 
       objectReference: {fileID: 679955862}
+    - target: {fileID: 7190155155875027216, guid: 47f1cf70ab2e68245a697327dc906678,
+        type: 3}
+      propertyPath: itemPanelObj
+      value: 
+      objectReference: {fileID: 679955861}
     - target: {fileID: 7190155155875027217, guid: 47f1cf70ab2e68245a697327dc906678,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33943,7 +33948,7 @@ GameObject:
   - component: {fileID: 1565944871}
   m_Layer: 0
   m_Name: TargetPerson
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37393,7 +37398,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -40404,7 +40409,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -41321,7 +41326,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -44179,7 +44184,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
@@ -45789,7 +45794,7 @@ PrefabInstance:
     - target: {fileID: 9113561252080322206, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6112008cba14c147b799fa5f0944f3d, type: 3}
