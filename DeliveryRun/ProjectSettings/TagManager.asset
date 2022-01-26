@@ -19,15 +19,12 @@ TagManager:
   - TargetPerson
   - UI
   - GameManager
-
   - SpecialManager
   - TargetPanel
   - Audio
   - EffectAudioManager
-
   - RandomEnemyLocation
   - RandomItemLocation
-
   layers:
   - Default
   - TransparentFX
