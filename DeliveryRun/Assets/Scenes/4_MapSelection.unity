@@ -640,8 +640,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1294906205}
   - {fileID: 725998099}
+  - {fileID: 1294906205}
   - {fileID: 1269780050}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1384,7 +1384,7 @@ PrefabInstance:
     - target: {fileID: 54543203203047616, guid: 7c9b5532f296b10478677a852196d366,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54543203203047616, guid: 7c9b5532f296b10478677a852196d366,
         type: 3}
@@ -1419,7 +1419,7 @@ PrefabInstance:
     - target: {fileID: 54543203203047616, guid: 7c9b5532f296b10478677a852196d366,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54543203203047616, guid: 7c9b5532f296b10478677a852196d366,
         type: 3}
@@ -1439,7 +1439,7 @@ PrefabInstance:
     - target: {fileID: 54543203203047647, guid: 7c9b5532f296b10478677a852196d366,
         type: 3}
       propertyPath: m_Name
-      value: Lv2_Block
+      value: Lv1_Block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c9b5532f296b10478677a852196d366, type: 3}
@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 888454208}
   m_Layer: 0
   m_Name: MapSelectManager
-  m_TagString: Untagged
+  m_TagString: SpecialManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3023,12 +3023,12 @@ PrefabInstance:
     - target: {fileID: 8625345430422828468, guid: 0471057b3812cf342b730d9adca663d3,
         type: 3}
       propertyPath: m_Name
-      value: Lv1_Block
+      value: Lv2_Block
       objectReference: {fileID: 0}
     - target: {fileID: 8625345430422828469, guid: 0471057b3812cf342b730d9adca663d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8625345430422828469, guid: 0471057b3812cf342b730d9adca663d3,
         type: 3}
@@ -3063,7 +3063,7 @@ PrefabInstance:
     - target: {fileID: 8625345430422828469, guid: 0471057b3812cf342b730d9adca663d3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8625345430422828469, guid: 0471057b3812cf342b730d9adca663d3,
         type: 3}

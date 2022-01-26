@@ -15,6 +15,7 @@ public class ButtonSceneChange : MonoBehaviour
         nowSceneIndex = SceneManager.GetActiveScene().buildIndex;
         thisSceneManager = GameObject.FindGameObjectWithTag("SpecialManager");
     }
+
     public void MainMenu()
     {
         Save();
@@ -48,7 +49,9 @@ public class ButtonSceneChange : MonoBehaviour
     private void Save()
     {
         if (nowSceneIndex == ScenesNameConst.storeScene)
+        {
             thisSceneManager.GetComponent<LoadStoreItems>().InitializeCostume();
+        }
         SavePlayerInfo.Save();
     }
 

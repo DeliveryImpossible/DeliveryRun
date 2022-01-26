@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource musicSource;
     public static int scene_flag = 0;
+
     void Awake()
     {
         musicSource = transform.GetChild(main).GetComponent<AudioSource>();
