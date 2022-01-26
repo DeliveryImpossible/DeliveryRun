@@ -4,7 +4,6 @@ using UnityEngine;
 using LitJson;
 using UnityEngine.UI;
 
-//영수증 생성
 public class MakeReceipt : MonoBehaviour
 {
     public GameObject[] totalStoreObj;
@@ -37,7 +36,6 @@ public class MakeReceipt : MonoBehaviour
 
         makeRandomStoreIndex();
         makeRandomStoreObject();
-        makeRandomGoods(selectedStoreIndex);
         InitStartMapImg();
         SetStartMapImg();
     }
@@ -55,9 +53,10 @@ public class MakeReceipt : MonoBehaviour
     }
     private void SetStartMapImg()
     {
+        makeRandomGoods(selectedStoreIndex);
         for (int num = 0; num < storeToDeliverNum; num++)
         {
-            startMapItems[num].GetComponent<Image>().sprite = totalMenuObj[selectedMenuIndex[num]].GetComponent<Image>().sprite;
+            startMapItems[selectedStoreIndex[num]].GetComponent<Image>().sprite = totalMenuObj[selectedMenuIndex[num]].GetComponent<Image>().sprite;
         }
         
     }
@@ -116,14 +115,6 @@ public class MakeReceipt : MonoBehaviour
         { 
             selectedMenu = DeliverTargetArr[i] * 3 + menu;
             selectedMenuIndex[i] = selectedMenu;
-            totalMenuObj[selectedMenu].transform.SetParent(missionMenuPanel);
-            //AttachItemImg(missionMenuPanel.GetComponent<Image>().sprite);
-            //missionMenuPanel.GetComponent<Image>().sprite = totalMenuObj[selectedMenu].GetComponent<Image>().sprite;
         }
-    }
-
-    private void AttachItemImg(Sprite toAttachPanel)
-    {
-        toAttachPanel = totalMenuObj[selectedMenu].GetComponent<Image>().sprite;
     }
 }
