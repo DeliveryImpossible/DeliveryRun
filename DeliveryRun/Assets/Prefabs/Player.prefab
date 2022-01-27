@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694107617286878740}
-  m_LocalRotation: {x: -0, y: -2.4876182e-30, z: 4.0379167e-31, w: 1}
+  m_LocalRotation: {x: -0, y: -3e-45, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 2.2385886}
   m_Children:
@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 2075202020201238098}
   - component: {fileID: 2075202020201238097}
   - component: {fileID: 2075202020201238101}
+  - component: {fileID: 2144420224196639375}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -128,7 +129,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075202020201238096}
-  m_LocalRotation: {x: -3e-45, y: 0.9991361, z: -0.041558646, w: -2e-44}
+  m_LocalRotation: {x: -0, y: 0.9991361, z: -0.041558646, w: 1e-45}
   m_LocalPosition: {x: 1.6699996, y: -3.800001, z: 26.82}
   m_LocalScale: {x: 1, y: 1, z: 0.44671005}
   m_Children:
@@ -222,6 +223,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2144420224196639375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075202020201238096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfcdd32f7a13484887c74bc0a4570c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 0.1
 --- !u!1 &2075202020502001266
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +368,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &2075202020322337084
 CapsuleCollider:

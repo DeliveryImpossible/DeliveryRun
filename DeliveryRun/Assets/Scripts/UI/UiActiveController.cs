@@ -20,6 +20,14 @@ public class UiActiveController : MonoBehaviour
 
     public void SwitchGameUI()
     {
+        /****
+         * 김예진 2022 01 23
+         * 계속 화면 각도 오류가 나는데 마땅히 둘 곳을 못찾겠어서 여기에 씀
+         ****/
+        RotateCam rotateCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RotateCam>();
+        rotateCam.SetAimY();
+
+
         UI.SetActive(true);
         isStart = true;
         CheckDeliverZone checkDeliverZone = targetManager.GetComponent<CheckDeliverZone>();

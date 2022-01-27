@@ -20,16 +20,19 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     
     public float force;
 
+    public static bool isJoyStickDrag;
 
 
     private void Awake(){
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = player.GetComponent<Animator>();
     }
+
     private void Start()
     {
         DeliverPanel.SetActive(false);
         animator.SetInteger("legs", 5);
+        isJoyStickDrag = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -60,10 +63,13 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         walking = false;
         animator.SetInteger("legs", 5);
         animator.SetInteger("arms", 5);
+
+        isJoyStickDrag = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        isJoyStickDrag = true;
         StartCoroutine("PlayerMove");
     }
 
