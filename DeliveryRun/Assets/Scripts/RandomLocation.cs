@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class RandomLocation : MonoBehaviour
 {
-    static GameObject[] enemiesRandomLocations;
-    static GameObject[] itemsRandomLocations;
-    static GameObject[] enemies;
-    static GameObject[] items;
-    static int[] enemiesLocation;
-    static int[] itemsLocation;
+    private GameObject[] enemiesRandomLocations;
+    private GameObject[] itemsRandomLocations;
+    private GameObject[] enemies;
+    private GameObject[] items;
+    private int[] enemiesLocation;
+    private int[] itemsLocation;
     
-    static bool flag = true;
+    private bool flag = true;
    
     
     
-    public static void CheckEnemy()
+    public void CheckEnemy()
     {
         enemiesRandomLocations = GameObject.FindGameObjectsWithTag("RandomEnemyLocation");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -26,7 +26,7 @@ public class RandomLocation : MonoBehaviour
         
     }
 
-    public static void CheckItem(){
+    public void CheckItem(){
         itemsRandomLocations = GameObject.FindGameObjectsWithTag("RandomItemLocation");
         items = GameObject.FindGameObjectsWithTag("Item");
         itemsLocation = new int[items.Length];
@@ -35,13 +35,13 @@ public class RandomLocation : MonoBehaviour
         SelectLocation(items, itemsRandomLocations, itemsLocation);
     }
 
-    static void InitLocation(int[] locations){
+    void InitLocation(int[] locations){
         for(int i = 0; i< locations.Length; i++){
             locations[i] = -1;
         }
     }
 
-    static void SelectLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
+    void SelectLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
         for(int i = 0; i < objectArray.Length; i++){
             int randomNumber = Random.Range(0, randomLocations.Length);
             
@@ -63,7 +63,7 @@ public class RandomLocation : MonoBehaviour
         TransferLocation(objectArray, randomLocations, selectedLocations);
     }
 
-    static void TransferLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
+    void TransferLocation(GameObject[] objectArray, GameObject[] randomLocations, int[] selectedLocations){
         for(int i = 0; i< objectArray.Length; i++){
             objectArray[i].transform.position = randomLocations[selectedLocations[i]].transform.position;
         }
