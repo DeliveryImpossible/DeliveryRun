@@ -14,7 +14,8 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(prefab);      
         }
 
-        RandomLocation.CheckEnemy();
+        //RandomLocation.CheckEnemy();
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<RandomLocation>().CheckEnemy();
     }
 
 }

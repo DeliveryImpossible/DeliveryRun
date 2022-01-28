@@ -37,7 +37,8 @@ public class ItemSpawner : MonoBehaviour
             Instantiate(gameObject, transform.position, transform.rotation);
         }
 
-        RandomLocation.CheckItem();
+        //RandomLocation.CheckItem();
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<RandomLocation>().CheckItem();
     }
 
     
