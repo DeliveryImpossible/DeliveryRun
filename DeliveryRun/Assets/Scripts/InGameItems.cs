@@ -18,12 +18,12 @@ public class InGameItems : MonoBehaviour
     public static bool haveCoinItem = false;
 
     private InGameBag inGameBag;
+    private 
 
 
     void Start()
     {
         healItem = GameObject.Find("node_id226");
-
         //healItem.SetActive(false);
         
         begItem = GameObject.Find("node_id58");
@@ -64,21 +64,21 @@ public class InGameItems : MonoBehaviour
         }
     }
 
-    public void UseBoosterItem(){ 
-        Joystick.moveSpeed += speedUpAmout;
-        Invoke("ReturnSpeed", changeTime);
+    public void UseBoosterItem(){
+        InGameSave.SetSpeed(speedUpAmout);
     }
 
     public void AddCoinItem(){
         InGameSave.SetCoin(100);
     }
-
+                                
     public void UseSkullItem(){
-        CircularTimerController.limitTime -= changeTime;
+        InGameSave.SetTime(-changeTime);
     }
 
-    public void UseIncreaseTimeItem(){
-        CircularTimerController.limitTime += changeTime;
+    public void UseIncreaseTimeItem()
+    {
+        InGameSave.SetTime(changeTime);
     }
 
     public void UseBombItem(){
@@ -105,11 +105,6 @@ public class InGameItems : MonoBehaviour
     void UseBegItem(){
         begItem.SetActive(false);
         inGameBag.RemoveBegInSlots();
-    }
-
-    private void ReturnSpeed()
-    {
-        Joystick.moveSpeed -= speedUpAmout;
     }
 
     public void InGameBagRefresh()

@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class RotateCam : MonoBehaviour
 {
-    public float turnSpeed = 0.1f;
+    public float turnSpeed = 0.05f;
     private float xRotate = 0.0f;
 
     CinemachineVirtualCamera cmvc;
@@ -13,7 +13,7 @@ public class RotateCam : MonoBehaviour
     UiActiveController uiAC;
     private void Start()
     {
-        cmvc = transform.GetChild(1).GetComponent<CinemachineVirtualCamera>();
+        cmvc = transform.GetChild(0).GetComponent<CinemachineVirtualCamera>();
         aim = cmvc.GetCinemachineComponent<CinemachineComposer>();
         uiAC = GameObject.FindGameObjectWithTag("GameManager").GetComponent<UiActiveController>();
     }
@@ -28,7 +28,7 @@ public class RotateCam : MonoBehaviour
             (Input.mousePosition.y < Screen.height / 100 * 40 && Input.mousePosition.x > Screen.width / 4 * 3)) 
             && Input.mousePosition.x < Screen.width / 100 * 85 )
         {
-            if (Input.GetMouseButton(0) && !Joystick.isJoyStickDrag && uiAC.isStart)
+            if (Input.GetMouseButton(0) && !Joystick.walking && uiAC.isStart)
             {
                 float xRotateSize = -Input.GetAxis("Mouse Y") * turnSpeed;
                 xRotate = Mathf.Clamp(xRotate + xRotateSize, (float)-0.5, (float)1.5);

@@ -24,7 +24,6 @@ public class CheckDeliverZone : MonoBehaviour
         targetManger = GameObject.FindGameObjectWithTag("TargetManager");
         player = GameObject.FindGameObjectWithTag("Player");
         uac = gameManager.GetComponent<UiActiveController>();
-        
     }
 
     void Update()

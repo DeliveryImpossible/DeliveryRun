@@ -7,8 +7,7 @@ using System.IO;
 public class ResetGame : MonoBehaviour
 {
     public void GameReset()
-    {
-
+    { 
         InitSelectedMapInfo();
         InitPackedItem();
         InGameSave.ResetSave();
