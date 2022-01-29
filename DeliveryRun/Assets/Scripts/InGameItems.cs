@@ -18,10 +18,7 @@ public class InGameItems : MonoBehaviour
     public static bool haveCoinItem = false;
 
     private InGameBag inGameBag;
-    private 
-
-
-    void Start()
+    private void Start()
     {
         healItem = GameObject.Find("node_id226");
         //healItem.SetActive(false);
