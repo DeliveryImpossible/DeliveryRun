@@ -2607,17 +2607,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pad: {fileID: 8607557737551987613}
-<<<<<<< Updated upstream
-  player: {fileID: 0}
-  rotateSpeed: 50
-  DeliverPanel: {fileID: 8607557738144770865}
-  force: 300
-=======
   DeliverPanel: {fileID: 8607557738144770865}
   force: 300
   rotateSpeed: 50
-  moveSpeed: 10
->>>>>>> Stashed changes
+  moveSpeed: 0
 --- !u!82 &632268596772201049
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2920,10 +2913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94680a62e9669e54687fb7dde36540f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-=======
   limitTime: 80
->>>>>>> Stashed changes
 --- !u!1 &8607557736821768042
 GameObject:
   m_ObjectHideFlags: 0
