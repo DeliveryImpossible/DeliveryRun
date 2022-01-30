@@ -7,6 +7,12 @@ public static class InGameSave
     private static int coin = 0;
     private static int successNum = 0;
     private static float time = 0;
+    private static float speed = 0;
+
+    public static void SetSpeed(float add)
+    {
+        speed += add;
+    }
 
     public static void SetCoin(int add)
     {
@@ -34,11 +40,16 @@ public static class InGameSave
     {
         return time;
     }
+    public static float GetSpeed()
+    {
+        return speed;
+    }
 
     public static void ResetSave()
     {
         coin = 0;
         successNum = 0;
         time = 0;
+        speed = 0;
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class CircularTimerController : MonoBehaviour
 {
-    public static float limitTime = 80f;
+    public float limitTime;
+
     private Text timerText;
     private Image loadingBar;
-    private float time;
     private InGameItems inGameItems;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class CircularTimerController : MonoBehaviour
     }
     void Start()
     {
-        time = limitTime;
+        InGameSave.SetTime(limitTime);
         if(InGameItems.haveIncreaseItem == true){
             inGameItems.UseIncreaseTimeItem();
             InGameBag usehaveIncreaseItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>(); 
@@ -31,22 +31,18 @@ public class CircularTimerController : MonoBehaviour
 
     public void Update()
     {
-        if (limitTime > 1)
+        if (InGameSave.GetTime() > 1)
         {
-            limitTime -= Time.deltaTime;
-            timerText.text = (int)limitTime / 60 + " : " + (int)limitTime % 60;
+            InGameSave.SetTime(-Time.deltaTime);
+            timerText.text = (int)InGameSave.GetTime() / 60 + " : " + (int)InGameSave.GetTime() % 60;
         }
         else
         {
-            InGameSave.SetTime(limitTime);
+            //패배
             SceneManager.LoadScene("10_Result");
         }
 
-        loadingBar.fillAmount = (limitTime - 1) / time;
+        loadingBar.fillAmount = (InGameSave.GetTime() - 1) / limitTime;
 
-    }
-
-    public float ReturnTime(){
-        return limitTime;
     }
 }
