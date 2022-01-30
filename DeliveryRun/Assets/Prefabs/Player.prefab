@@ -455,6 +455,19 @@ MonoBehaviour:
   audioIncreaseTime: {fileID: 8300000, guid: 8773868887102484fb629c2d87575142, type: 3}
   audioSkull: {fileID: 8300000, guid: 2fbce70ae2186dd4bbfb8c3b932f96a8, type: 3}
   audioEnemy: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+--- !u!114 &8971050444381367255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814995838434153601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069ef5d85b9c545489d6fa243a0aad88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRespwanLocation: {x: -5, y: 2, z: 2}
 --- !u!1 &8405972308562912517
 GameObject:
   m_ObjectHideFlags: 0
