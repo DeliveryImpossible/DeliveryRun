@@ -62,19 +62,14 @@ public class GetResult : MonoBehaviour
 
         if (win)
             GameResultSave();
-        GameReset();
+
+        GetComponent<ResetGame>().GameReset();
     }
 
     private void GameResultSave()
     {
         GetComponent<SaveResult>().ConnectResultSave(NowGameMap.nowPlayingMap, NowGameMap.nowPlayingDifficulty, star);
 
-    }
-
-    private void GameReset()
-    {
-        InGameSave.ResetSave();
-        GetComponent<ResetGame>().GameReset();
     }
 
 

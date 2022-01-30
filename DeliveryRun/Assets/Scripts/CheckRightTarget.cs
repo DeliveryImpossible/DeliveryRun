@@ -92,9 +92,9 @@ public class CheckRightTarget : MakeReceipt
         InGameSave.SetSuccessNum(1);
         InGameSave.SetCoin(500);
 
+        //성공
         if (DeliverAll())
         {
-            InGameSave.SetTime(GameObject.Find("Timer").GetComponent<CircularTimerController>().ReturnTime());
             SceneManager.LoadScene("10_Result");
         }
 

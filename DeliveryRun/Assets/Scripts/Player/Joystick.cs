@@ -7,32 +7,26 @@ using UnityEngine.EventSystems;
 public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     public RectTransform pad;
-    private Transform player;
+    public GameObject DeliverPanel;
+    public float force;
+    public float rotateSpeed;
+    public float moveSpeed;
+
+    public static bool walking;
+
     Vector3 moveForward;
     Vector3 moveRotate;
-    static public float moveSpeed = 6f;
-    public float rotateSpeed;
-
+    private Transform player;
     private Animator animator;
-    bool walking;
-
-    public GameObject DeliverPanel;
-    
-    public float force;
-
-    public static bool isJoyStickDrag;
-
-
-    private void Awake(){
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        animator = player.GetComponent<Animator>();
-    }
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = player.GetChild(0).GetComponent<Animator>();
         DeliverPanel.SetActive(false);
         animator.SetInteger("legs", 5);
-        isJoyStickDrag = false;
+        InGameSave.SetSpeed(moveSpeed);
+        walking = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -63,20 +57,17 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         walking = false;
         animator.SetInteger("legs", 5);
         animator.SetInteger("arms", 5);
-
-        isJoyStickDrag = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        isJoyStickDrag = true;
         StartCoroutine("PlayerMove");
     }
 
     IEnumerator PlayerMove(){
         while(true){
             // 이동
-            player.Translate(moveForward * moveSpeed * Time.deltaTime);
+            player.Translate(moveForward * InGameSave.GetSpeed() * Time.deltaTime);
             
             // 회전
             if(Mathf.Abs(transform.localPosition.x) > pad.rect.width * 0.2f){
@@ -87,10 +78,9 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
-    
-
     public void OpenDeliverPanel()
     {
         DeliverPanel.SetActive(true);
     }
+
 }
