@@ -18,6 +18,7 @@ public class MakeReceipt : MonoBehaviour
     Transform missionMenuPanel;
     public GameObject[] totalMenuObj;
     public GameObject itemPanelObj;
+    public GameObject goodsPanel;
 
     GameObject startMapItemPanel;
     public GameObject[] startMapItems;
@@ -57,6 +58,7 @@ public class MakeReceipt : MonoBehaviour
         for (int num = 0; num < storeToDeliverNum; num++)
         {
             startMapItems[selectedStoreIndex[num]].GetComponent<Image>().sprite = totalMenuObj[selectedMenuIndex[num]].GetComponent<Image>().sprite;
+            totalMenuObj[selectedMenuIndex[num]].GetComponent<Image>().transform.parent = goodsPanel.transform;
         }
         
     }

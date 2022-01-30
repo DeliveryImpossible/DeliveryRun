@@ -25,6 +25,7 @@ TagManager:
   - EffectAudioManager
   - RandomEnemyLocation
   - RandomItemLocation
+  - GoodsPanel
   layers:
   - Default
   - TransparentFX
