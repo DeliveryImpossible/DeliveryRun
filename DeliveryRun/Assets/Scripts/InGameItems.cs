@@ -21,10 +21,10 @@ public class InGameItems : MonoBehaviour
     private void Start()
     {
         healItem = GameObject.Find("node_id226");
-        healItem.SetActive(false);
+        //healItem.SetActive(false);
         
         begItem = GameObject.Find("node_id58");
-        begItem.SetActive(false);
+        //begItem.SetActive(false);
 
 
         inGameBag = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InGameBag>();
