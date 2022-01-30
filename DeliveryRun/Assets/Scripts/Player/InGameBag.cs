@@ -141,22 +141,22 @@ public class InGameBag : MonoBehaviour
     {
         if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == begID)
         {
-             GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveBegItem = true;
+            inGameItems.haveBegItem = true;
             return true;
         }
         else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == healID)
         {
-             GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveHealItem = true;
+            inGameItems.haveHealItem = true;
             return true;
         }
         else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == increaseTimeID)
         {
-             GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveIncreaseItem = true;
+            inGameItems.haveIncreaseItem = true;
             return true;
         }
         else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == coinID)
         {  
-            GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveCoinItem = true;
+            inGameItems.haveCoinItem = true;
             return true;
         }
         return false;
