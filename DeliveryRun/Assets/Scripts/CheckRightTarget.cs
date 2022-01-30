@@ -105,7 +105,7 @@ public class CheckRightTarget : MakeReceipt
     {
         soundEffectManager.OnEffectSound(SoundEffectManager.wrongGood);
 
-        if (InGameItems.haveBegItem == true)
+        if ( GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveBegItem == true)
         {
             inGameItems.HaveBegItem();
             //새로고침 필요 여부 확인

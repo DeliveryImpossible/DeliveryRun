@@ -55,15 +55,15 @@ public class ItemSoundEffect : MonoBehaviour
         if(collisionInfo.gameObject.tag == "Enemy"){ 
             audioSource.clip = audioEnemy;
             audioSource.Play();
-            if(InGameItems.haveHealItem == true){
-                InGameItems.healItem.SetActive(true);
+            if( GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveHealItem == true){
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().healItem.SetActive(true);
                 inGameItems.HaveHealItem();
 
             }else{
                 inGameItems.UseSkullItem();
             }
 
-            InGameItems.haveHealItem = false;
+             GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveHealItem = false;
         }
 
     }

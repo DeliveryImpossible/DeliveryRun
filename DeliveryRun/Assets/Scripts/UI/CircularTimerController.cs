@@ -21,11 +21,11 @@ public class CircularTimerController : MonoBehaviour
     void Start()
     {
         InGameSave.SetTime(limitTime);
-        if(InGameItems.haveIncreaseItem == true){
+        if( GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveIncreaseItem == true){
             inGameItems.UseIncreaseTimeItem();
             InGameBag usehaveIncreaseItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>(); 
             usehaveIncreaseItemInSlot.InGameRemoveIncreaseTime(); 
-            InGameItems.haveIncreaseItem = false;
+             GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveIncreaseItem = false;
         }
     }
 
