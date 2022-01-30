@@ -6,25 +6,25 @@ using UnityEngine;
 public class InGameItems : MonoBehaviour
 {
 
-    public static float speedUpAmout = 3f;
-    private static float changeTime = 7f;
+    private float speedUpAmout = 3f;
+    private float changeTime = 7f;
 
-    public static GameObject healItem;
-    public static GameObject begItem;
+    public GameObject healItem;
+    public GameObject begItem;
 
-    public static bool haveHealItem = false; 
-    public static bool haveBegItem = false; 
-    public static bool haveIncreaseItem = false; 
-    public static bool haveCoinItem = false;
+    public bool haveHealItem = false; 
+    public bool haveBegItem = false; 
+    public bool haveIncreaseItem = false; 
+    public bool haveCoinItem = false;
 
     private InGameBag inGameBag;
     private void Start()
     {
         healItem = GameObject.Find("node_id226");
-        //healItem.SetActive(false);
+        healItem.SetActive(false);
         
         begItem = GameObject.Find("node_id58");
-        //begItem.SetActive(false);
+        begItem.SetActive(false);
 
 
         inGameBag = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InGameBag>();
