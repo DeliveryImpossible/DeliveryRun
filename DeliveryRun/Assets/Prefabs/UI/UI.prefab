@@ -2610,7 +2610,7 @@ MonoBehaviour:
   DeliverPanel: {fileID: 8607557738144770865}
   force: 300
   rotateSpeed: 50
-  moveSpeed: 0
+  moveSpeed: 6
 --- !u!82 &632268596772201049
 AudioSource:
   m_ObjectHideFlags: 0
