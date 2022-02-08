@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerRespwan : MonoBehaviour
 {
     public Vector3 playerRespwanLocation;
+    public int minPlayerY = -30;
 
     private void Update()
     {
-        if(transform.position.y < -30)
+        if(transform.position.y < minPlayerY)
         {
             transform.position = playerRespwanLocation;
         }
