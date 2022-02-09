@@ -37843,22 +37843,22 @@ PrefabInstance:
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.000000016880652
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -9.34937e-10
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99846977
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.055300377
+      value: 3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
@@ -37893,22 +37893,32 @@ PrefabInstance:
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000014901161
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -5.1800164e-10
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 5.7555627e-11
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8254363669851254313, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_XDamping
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8247517826685045427, guid: 6e921c01c88dffe42b725ff118b22923, type: 3}
