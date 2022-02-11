@@ -30,26 +30,7 @@ CapsuleCollider:
   m_Height: 1.7941582
   m_Direction: 1
   m_Center: {x: 0, y: 0.8923961, z: 0}
---- !u!95 &3385607850792881025
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543848643460643131}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d83e07c47cb17454bbddbc5dd7574150, type: 3}
-  m_Controller: {fileID: 9100000, guid: 64d78995d526da546a4d58f9211e5156, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5366936318165779708
+--- !u!114 &1770465234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +42,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af61be294e6a64045815cee70b2c1172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 0
+  movespeed: 1
+--- !u!114 &-7533568356840797108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543848643460643131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a6094a3136c8c4e9b287ebdd5f3c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8788208260983275429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,11 +67,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 64d78995d526da546a4d58f9211e5156, type: 2}
-    - target: {fileID: 4019007307956816965, guid: d6112008cba14c147b799fa5f0944f3d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6535966611668304912, guid: d6112008cba14c147b799fa5f0944f3d,
         type: 3}
       propertyPath: m_RootOrder
