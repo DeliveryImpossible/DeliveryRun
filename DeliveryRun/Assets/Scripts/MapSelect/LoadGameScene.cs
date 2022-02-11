@@ -69,8 +69,7 @@ public class LoadGameScene : MonoBehaviour
         int mapToLaod = MapSelectIndex.currentMap;
         NowGameMap.nowPlayingDifficulty = nowDifficulty;
         NowGameMap.nowPlayingMap = MapSelectIndex.currentMap;
-        if(audioManager != null)
-            audioManager.ChangeMusic(mapToLaod);
+        audioManager.ChangeMusic(mapToLaod);
         SceneManager.LoadScene(mapToLaod + 4);
     }
 
