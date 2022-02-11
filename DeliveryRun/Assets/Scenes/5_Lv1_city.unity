@@ -6907,17 +6907,17 @@ PrefabInstance:
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.82
+      value: 25.32
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
@@ -6927,12 +6927,12 @@ PrefabInstance:
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9991361
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.041558646
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020322337075, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
@@ -7012,12 +7012,12 @@ PrefabInstance:
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 3e-45
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
@@ -7028,6 +7028,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player_Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.z
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e921c01c88dffe42b725ff118b22923, type: 3}
