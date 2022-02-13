@@ -19,6 +19,7 @@ public class InGameBag : MonoBehaviour
     private const int bombID = 6;
     private const int skullID = 7; 
     private const int totalItemsAmount = 7;
+    private const int totalPackedItemsAmount = 6;
 
     int[] inInventoryBagItemsIDs;
     public GameObject inGameBagSlots;
@@ -28,7 +29,7 @@ public class InGameBag : MonoBehaviour
 
     private void Start()
     {
-        GameObject[] allItems = GameObject.FindGameObjectsWithTag("Item");
+        GameObject[] allItems = GameObject.FindGameObjectsWithTag("ItemInBag");
         GameObject manager = GameObject.FindGameObjectWithTag("Manager");
         inInventoryBagItemsIDs = manager.GetComponent<GetPackedItems>().GetPackedItemIDs();
 
@@ -85,14 +86,8 @@ public class InGameBag : MonoBehaviour
 
             inGameitemInBag = slot.GetChild(0).GetComponent<Image>(); 
 
-            if(packedItemList[i].GetComponent<ItemInfo>().id == bombID){
-                inGameitemInBag.sprite = packedItemList[i].transform.GetChild(5).GetComponent<Image>().sprite;
-            }
-            else
-            {
-                inGameitemInBag.sprite = packedItemList[i].transform.GetChild(1).GetComponent<Image>().sprite;
-                isAutoItem = CheckAutoItem(i);
-            }
+            inGameitemInBag.sprite = packedItemList[i].GetComponent<Image>().sprite;
+            isAutoItem = CheckAutoItem(i);
 
             if (isAutoItem)
             {
@@ -127,7 +122,7 @@ public class InGameBag : MonoBehaviour
     {
         if (inInventoryBagItemsIDs[0] != 0)
         {
-            for (int i = 0; i < totalItemsAmount; i++)
+            for (int i = 0; i < totalPackedItemsAmount; i++)
             {
                 if (allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[0] || allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[1] || allItems[i].GetComponent<ItemInfo>().id == inInventoryBagItemsIDs[2])
                 {
