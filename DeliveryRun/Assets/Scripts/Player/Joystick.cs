@@ -25,8 +25,13 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         animator = player.GetChild(0).GetComponent<Animator>();
         DeliverPanel.SetActive(false);
         animator.SetInteger("legs", 5);
-        InGameSave.SetSpeed(moveSpeed);
+        InGameSave.SetSpeed(moveSpeed, true);
         walking = false;
+    }
+
+    private void Update()
+    {
+        moveSpeed = InGameSave.GetSpeed();
     }
 
     public void OnDrag(PointerEventData eventData)
