@@ -11,8 +11,6 @@ public class UIDescription : MonoBehaviour
 
     public GameObject secondPanelfirstText;
     public GameObject secondPanelsecondText;
-    public GameObject secondPanelfirstButton;
-    public GameObject secondPanelsecondButton;
 
     public void navigateToSecondAtFirstPanel()
     {
@@ -24,9 +22,7 @@ public class UIDescription : MonoBehaviour
 
     public void navigateToSecondAtSecondPanel()
     {
-        secondPanelfirstButton.SetActive(false);
         secondPanelfirstText.SetActive(false);
-        secondPanelsecondButton.SetActive(true);
         secondPanelsecondText.SetActive(true);
     }
 }
