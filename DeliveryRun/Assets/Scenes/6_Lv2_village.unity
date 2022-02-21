@@ -37921,6 +37921,16 @@ PrefabInstance:
       propertyPath: m_XDamping
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8247517826685045427, guid: 6e921c01c88dffe42b725ff118b22923, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e921c01c88dffe42b725ff118b22923, type: 3}

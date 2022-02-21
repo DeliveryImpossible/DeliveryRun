@@ -7029,6 +7029,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player_Body
       objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971050444381367255, guid: 6e921c01c88dffe42b725ff118b22923,
+        type: 3}
+      propertyPath: playerRespwanLocation.z
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e921c01c88dffe42b725ff118b22923, type: 3}
 --- !u!4 &925306813 stripped
