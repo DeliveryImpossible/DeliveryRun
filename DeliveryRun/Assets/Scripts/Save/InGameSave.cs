@@ -9,9 +9,14 @@ public static class InGameSave
     private static float time = 0;
     private static float speed = 0;
 
-    public static void SetSpeed(float add)
+    public static void SetSpeed(float add, bool booster)
     {
-        speed += add;
+        if(booster){
+            speed += add;
+        }else{
+            speed -= add;
+        }
+        
     }
 
     public static void SetCoin(int add)

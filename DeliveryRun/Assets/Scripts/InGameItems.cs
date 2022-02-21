@@ -6,7 +6,7 @@ using UnityEngine;
 public class InGameItems : MonoBehaviour
 {
 
-    private float speedUpAmout = 3f;
+    private float speedUpAmout = 5f;
     private float changeTime = 7f;
 
     public GameObject healItem;
@@ -62,7 +62,8 @@ public class InGameItems : MonoBehaviour
     }
 
     public void UseBoosterItem(){
-        InGameSave.SetSpeed(speedUpAmout);
+        InGameSave.SetSpeed(speedUpAmout, true);
+        Invoke("RestoreSpeed", 5f);
     }
 
     public void AddCoinItem(){
@@ -87,6 +88,10 @@ public class InGameItems : MonoBehaviour
         InGameBag useHealItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>();
         useHealItemInSlot.RemoveHealInSlots();
         Invoke("UseHealItem", 1f);
+    }
+
+    void RestoreSpeed(){
+        InGameSave.SetSpeed(speedUpAmout, false);
     }
 
     void UseHealItem(){
