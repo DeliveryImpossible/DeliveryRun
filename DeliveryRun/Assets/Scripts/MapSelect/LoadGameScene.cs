@@ -81,7 +81,7 @@ public class LoadGameScene : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(ScenesNameConst.startScene);
     }
 
     private string ExtractItemName(int itemIndex)
