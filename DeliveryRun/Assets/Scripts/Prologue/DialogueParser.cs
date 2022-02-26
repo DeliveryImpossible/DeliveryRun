@@ -10,6 +10,7 @@ public class Dialogue
 public class DialogueParser : MonoBehaviour
 {
     public Dictionary<int, Dialogue> prologueDialogueDic = new Dictionary<int, Dialogue>();
+    private static int endLine = 6;
     private void Start()
     {
         Parse();
@@ -27,6 +28,11 @@ public class DialogueParser : MonoBehaviour
             dialogue.line = prologueLineData[i]["line"].ToString();
             prologueDialogueDic.Add(i, dialogue);
         }
+    }
+
+    public int getEndLine()
+    {
+        return endLine;
     }
 
 

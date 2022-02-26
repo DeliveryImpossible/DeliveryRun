@@ -25,7 +25,7 @@ public class PrologueManager : MonoBehaviour
     {
         animations.FindAnimationEvent(dialgueIndex);
 
-        if (dialgueIndex == 6) return;
+        if (dialgueIndex == parser.getEndLine()) return;
 
         Dialogue dialogue = parser.prologueDialogueDic[dialgueIndex];
         name.text = dialogue.name;

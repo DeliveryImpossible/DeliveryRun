@@ -19,6 +19,11 @@ public class PrologueAnimations : MonoBehaviour
     private Vector3 tv = new Vector3((float)-7.1, (float)1.2, (float)23);
     private Vector3 outside_full = new Vector3((float)150, (float)12, (float)-30);
     private Vector3 outside_in = new Vector3((float)150, (float)1, (float)-5);
+    private Quaternion homeRotation = Quaternion.Euler(10, 180, 0);
+    private Quaternion outRotation = Quaternion.Euler(10, 0, 0);
+
+    private int existNameLineY = 50;
+    private int noneNameLineY = 100;
 
     private void Start()
     {
@@ -30,7 +35,7 @@ public class PrologueAnimations : MonoBehaviour
     {
         if(index == 0)
         {
-            line.GetComponent<RectTransform>().anchoredPosition = new Vector3(line.GetComponent<RectTransform>().anchoredPosition.x, 100); ;
+            ChangeLineYPositionDependingOnName(existNameLineY);
         }
         else if(index == 1)
         {
@@ -38,9 +43,8 @@ public class PrologueAnimations : MonoBehaviour
         }
         else if(index == 2)
         {
-            line.GetComponent<RectTransform>().anchoredPosition = new Vector3(line.GetComponent<RectTransform>().anchoredPosition.x, 50);
-            ChangeCameraPosition(outside_full);
-            mainCamera.transform.rotation = Quaternion.Euler(10, 0, 0);
+            ChangeLineYPositionDependingOnName(noneNameLineY);
+            ChangeCameraPosition(outside_full, outRotation);
         }
         else if(index == 3)
         {
@@ -48,15 +52,22 @@ public class PrologueAnimations : MonoBehaviour
         }
         else if(index == 5)
         {
-            Debug.Log(playerAnim.GetInteger("legs"));
-            Debug.Log(playerAnim.GetInteger("arms"));
             playerAnim.SetInteger("legs", 5);
             playerAnim.SetInteger("arms", 17); 
-            Debug.Log(playerAnim.GetInteger("legs"));
-            Debug.Log(playerAnim.GetInteger("arms"));
-            ChangeCameraPosition(home);
-            mainCamera.transform.rotation = Quaternion.Euler(10, 180, 0);
+            ChangeCameraPosition(home, homeRotation);
         }
+    }
+
+    private void ChangeLineYPositionDependingOnName(int y)
+    {
+        line.GetComponent<RectTransform>().anchoredPosition = 
+            new Vector3(line.GetComponent<RectTransform>().anchoredPosition.x, y);
+    }
+
+    private void ChangeCameraPosition(Vector3 vector, Quaternion quaternion)
+    {
+        mainCamera.transform.position = vector;
+        mainCamera.transform.rotation = quaternion;
     }
 
     private void ChangeCameraPosition(Vector3 vector)
