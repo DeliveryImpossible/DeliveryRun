@@ -120,7 +120,6 @@ public class InGameBag : MonoBehaviour
     }
     private void PackedItemArrToList(GameObject[] allItems)
     {
-        Debug.Log(allItems.Length);
         if (inInventoryBagItemsIDs[0] != 0)
         {
             for (int i = 0; i < totalPackedItemsAmount; i++)
