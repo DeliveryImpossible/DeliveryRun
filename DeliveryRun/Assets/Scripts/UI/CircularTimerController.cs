@@ -38,8 +38,7 @@ public class CircularTimerController : MonoBehaviour
         }
         else
         {
-            //패배
-            SceneManager.LoadScene("10_Result");
+            SceneManager.LoadScene(ScenesNameConst.resultScene);
         }
 
         loadingBar.fillAmount = (InGameSave.GetTime() - 1) / limitTime;
