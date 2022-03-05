@@ -35,7 +35,8 @@ public class PrologueAnimations : MonoBehaviour
     {
         if(index == 0)
         {
-            ChangeLineYPositionDependingOnName(existNameLineY);
+            SetPlayerAnimation(9, 3);
+            ChangeLineYPositionDependingOnName(noneNameLineY);
         }
         else if(index == 1)
         {
@@ -43,7 +44,7 @@ public class PrologueAnimations : MonoBehaviour
         }
         else if(index == 2)
         {
-            ChangeLineYPositionDependingOnName(noneNameLineY);
+            ChangeLineYPositionDependingOnName(existNameLineY);
             ChangeCameraPosition(outside_full, outRotation);
         }
         else if(index == 3)
@@ -52,8 +53,7 @@ public class PrologueAnimations : MonoBehaviour
         }
         else if(index == 5)
         {
-            playerAnim.SetInteger("legs", 5);
-            playerAnim.SetInteger("arms", 17); 
+            SetPlayerAnimation(17, 5);
             ChangeCameraPosition(home, homeRotation);
         }
     }
@@ -73,6 +73,12 @@ public class PrologueAnimations : MonoBehaviour
     private void ChangeCameraPosition(Vector3 vector)
     {
         mainCamera.transform.position = vector;
+    }
+
+    private void SetPlayerAnimation(int arms, int legs)
+    {
+        playerAnim.SetInteger("legs", legs);
+        playerAnim.SetInteger("arms", arms);
     }
 
     private void Update()
