@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.60303116, g: 0.70293075, b: 0.8501747, a: 1}
+  m_IndirectSpecularColor: {r: 0.6023791, g: 0.70202917, b: 0.85236144, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3238,26 +3238,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f68c0002610834fb75259fe04c421f, type: 3}
---- !u!4 &289789219
+--- !u!4 &289789219 stripped
 Transform:
-  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3512749450936011732, guid: b5f68c0002610834fb75259fe04c421f,
     type: 3}
   m_PrefabInstance: {fileID: 289789218}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766087519}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 96232194}
-  - {fileID: 193702995}
-  - {fileID: 1370378378}
-  - {fileID: 1835994009}
-  - {fileID: 591425711}
-  m_Father: {fileID: 852667646}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &302210925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4021074937488796, guid: 12881eca0b9e04a2f893882ef363d69d,
@@ -5852,22 +5838,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 922867600}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &766087519
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 289789218}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 289789219}
-  m_Layer: 0
-  m_Name: Missing Prefab (Dummy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1001 &766203180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6300,37 +6270,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 837245565}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &852667645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 289789218}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 852667646}
-  m_Layer: 0
-  m_Name: Items (Missing Prefab)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &852667646
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 289789218}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852667645}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 289789219}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858990803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7112,7 +7051,7 @@ PrefabInstance:
     - target: {fileID: 2075202020201238099, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1e-45
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2075202020322337075, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
@@ -7192,7 +7131,7 @@ PrefabInstance:
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1e-45
+      value: 3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 5828343131713808057, guid: 6e921c01c88dffe42b725ff118b22923,
         type: 3}
@@ -18303,9 +18242,14 @@ PrefabInstance:
       objectReference: {fileID: 1493810035}
     - target: {fileID: 7190155155875027218, guid: 47f1cf70ab2e68245a697327dc906678,
         type: 3}
-      propertyPath: itemPanelObj
+      propertyPath: goodsPanel
       value: 
       objectReference: {fileID: 977175434}
+    - target: {fileID: 7190155155875027218, guid: 47f1cf70ab2e68245a697327dc906678,
+        type: 3}
+      propertyPath: itemPanelObj
+      value: 
+      objectReference: {fileID: 1513246827}
     - target: {fileID: 7190155155875027218, guid: 47f1cf70ab2e68245a697327dc906678,
         type: 3}
       propertyPath: successPanel
