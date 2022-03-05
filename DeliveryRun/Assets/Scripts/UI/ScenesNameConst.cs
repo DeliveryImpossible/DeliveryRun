@@ -11,7 +11,7 @@ public class ScenesNameConst
     public const int mapSelectionScene = 5;
     public const int lv1Scene = 6;
     public const int lv2Scene = 7;
-    public const int lv3Scene = 8;
+    public const int lv5Scene = 8;
     public const int resultScene = 9;
 
 }
