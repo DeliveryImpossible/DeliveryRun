@@ -95,7 +95,7 @@ public class CheckRightTarget : MakeReceipt
 
         if (DeliverAll())
         {
-            SceneManager.LoadScene("10_Result");
+            SceneManager.LoadScene(ScenesNameConst.resultScene);
         }
 
         selectedButton.interactable = false;

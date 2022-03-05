@@ -69,8 +69,9 @@ public class LoadGameScene : MonoBehaviour
         int mapToLaod = MapSelectIndex.currentMap;
         NowGameMap.nowPlayingDifficulty = nowDifficulty;
         NowGameMap.nowPlayingMap = MapSelectIndex.currentMap;
-        audioManager.ChangeMusic(mapToLaod);
-        SceneManager.LoadScene(mapToLaod + 4);
+        if(audioManager != null)
+            audioManager.ChangeMusic(mapToLaod);
+        SceneManager.LoadScene(extractSceneIndex(mapToLaod));
     }
 
     public void Cancle()
@@ -80,11 +81,16 @@ public class LoadGameScene : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(ScenesNameConst.startScene);
     }
 
     private string ExtractItemName(int itemIndex)
     {
         return itemDataJson[0][0][packedItemIds[itemIndex] - 1]["Name"][0]["KOR"].ToString();
+    }
+
+    private int extractSceneIndex(int mapToLoad)
+    {
+        return mapToLoad + 5;
     }
 }

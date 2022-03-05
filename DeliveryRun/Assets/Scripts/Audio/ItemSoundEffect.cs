@@ -29,19 +29,19 @@ public class ItemSoundEffect : MonoBehaviour
     {
         if(collision.gameObject.tag == "Item"){
             switch(collision.gameObject.name){
-                case "Booster":
+                case "Booster(Clone)":
                     audioSource.clip = audioBooster;
                     break;
-                case "Coin":
+                case "Coin(Clone)":
                     audioSource.clip = audioCoin;
                     break;
-                case "Skull":
+                case "Skull(Clone)":
                     audioSource.clip = audioSkull;
                     break;            
-                case "Bomb": 
+                case "Bomb(Clone)": 
                     audioSource.clip = audioBomb;
                     break;
-                case "IncreaseTime":
+                case "IncreaseTime(Clone)":
                     audioSource.clip = audioIncreaseTime;
                     break;      
                 default:
