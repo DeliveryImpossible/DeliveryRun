@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class InGameSave 
 {
+    private static bool isUsedCoinItem = false;
     private static int coin = 0;
     private static int successNum = 0;
     private static float time = 0;
@@ -18,7 +19,6 @@ public static class InGameSave
         }
         
     }
-
     public static void SetCoin(int add)
     {
         coin += add;
@@ -31,7 +31,10 @@ public static class InGameSave
     {
         time += add;
     }
-
+    public static void SetIsUsedCoinItem(bool isUsed)
+    {
+        isUsedCoinItem = isUsed;
+    }
 
     public static int GetCoin()
     {
@@ -49,12 +52,17 @@ public static class InGameSave
     {
         return speed;
     }
+    public static bool GetIsUsedCoinItem()
+    {
+        return isUsedCoinItem;
+    }
 
     public static void ResetSave()
     {
         coin = 0;
         successNum = 0;
         time = 0;
-        speed = 0;
+        speed = 0; 
+        isUsedCoinItem = false;
     }
 }
