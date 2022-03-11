@@ -30,14 +30,14 @@ public class GetPackedItems : MonoBehaviour
     }
     public void InitializePackedItem()
     {
-        packedItemIDs = new int[3];
+        packedItemIDs = new int[PackingItems.bagMaxSize];
         JsonData packedItemsData = JsonMapper.ToJson(packedItemIDs);
         File.WriteAllText(FilePath.resourcePath + "/PackedItemID.json", packedItemsData.ToString());
     }
 
     public bool CheckResetPackedItem()
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < PackingItems.bagMaxSize; i++)
         {
             if(packedItemIDs[i] != 0)
             {
