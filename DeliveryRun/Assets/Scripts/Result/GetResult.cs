@@ -125,7 +125,7 @@ public class GetResult : MonoBehaviour
 
     private int CalculateCoin()
     {
-        if ( GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveCoinItem)
+        if (InGameSave.GetIsUsedCoinItem())
         {
             GameObject doubleCoinSign = rewardBox.transform.GetChild(2).GetChild(0).GetChild(1).gameObject;
             doubleCoinSign.SetActive(true);

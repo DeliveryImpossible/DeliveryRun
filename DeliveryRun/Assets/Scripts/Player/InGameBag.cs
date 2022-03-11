@@ -152,6 +152,7 @@ public class InGameBag : MonoBehaviour
         else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == coinID)
         {  
             inGameItems.haveCoinItem = true;
+            InGameSave.SetIsUsedCoinItem(true);
             return true;
         }
         return false;
