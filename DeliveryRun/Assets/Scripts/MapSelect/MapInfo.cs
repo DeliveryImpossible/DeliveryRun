@@ -28,7 +28,7 @@ public class MapInfo
     {
         unlockedMap = mapInfo.unlockedMap;
         earnedStarByMap = mapInfo.earnedStarByMap;
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < totalMapCount; i++)
         {
             if (unlockedMap[i])
                 initalMap = i + 1;
