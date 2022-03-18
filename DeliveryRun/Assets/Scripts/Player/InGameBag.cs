@@ -46,7 +46,7 @@ public class InGameBag : MonoBehaviour
         if (index >= packedItemList.Count){
             return;
         }
-        else if(CheckAutoItem(gameSlotID))
+        else if(!CheckAutoItem(gameSlotID))
         {
             soundEffectManager.OnEffectSound(SoundEffectManager.itemClick);
 
@@ -55,14 +55,8 @@ public class InGameBag : MonoBehaviour
                 case 1:
                     inGameItems.UseBoosterItem();
                     break;
-                case 2:
-                    inGameItems.AddCoinItem();
-                    break;
                 case 6:
                     inGameItems.UseBombItem();
-                    break;
-                case 7:
-                    inGameItems.UseSkullItem();
                     break; 
             }
 
