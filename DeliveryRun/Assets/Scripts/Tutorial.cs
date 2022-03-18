@@ -3,25 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public class TutorialInfo
+{
+    public static int playnum = 0;
+}
+
 public class Tutorial : MonoBehaviour
 {
-    public static bool showTutorial;
+   
     public GameObject startPanel;
     public GameObject tutorialStartPanel;
     public GameObject tutorialFirstPanel;
 
     private void Awake()
     {
-        if(showTutorial)
+        if(TutorialInfo.playnum == 0)
         {
             startPanel.SetActive(false);
             tutorialStartPanel.SetActive(true);
             tutorialFirstPanel.SetActive(true);
-        }  
+            OffTutorial();
+        }
     }
-    public void StartTutorial()
+    public void OffTutorial()
     {
-        showTutorial = true;
+        TutorialInfo.playnum = 1;
     }
 
     public void StopTime()
@@ -32,10 +38,5 @@ public class Tutorial : MonoBehaviour
     public void StartTime()
     {
         Time.timeScale = 1;
-    }
-
-    public void EndTutorial()
-    {
-        showTutorial = false;
     }
 }

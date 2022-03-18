@@ -10,8 +10,6 @@ public class SceneStart : MonoBehaviour
     {
         if (File.Exists(FilePath.savePath + "/PlayerInfo.txt"))
         {
-            Tutorial.showTutorial = false;
-
             LoadPlayerInfo.Load();
 
             if (SceneManager.GetActiveScene().buildIndex == ScenesNameConst.getPlayerNameScene)
