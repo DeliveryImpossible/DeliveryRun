@@ -19,7 +19,7 @@ public static class InGameSave
         }
         
     }
-    public static void SetCoin(int add)
+    public static void AddCoin(int add)
     {
         coin += add;
     }
@@ -27,7 +27,7 @@ public static class InGameSave
     {
         successNum += add;
     }
-    public static void SetTime(float add)
+    public static void AddTime(float add)
     {
         time += add;
     }

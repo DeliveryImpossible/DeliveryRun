@@ -67,16 +67,16 @@ public class InGameItems : MonoBehaviour
     }
 
     public void AddCoinItem(){
-        InGameSave.SetCoin(100);
+        InGameSave.AddCoin(100);
     }
                                 
     public void UseSkullItem(){
-        InGameSave.SetTime(-changeTime);
+        InGameSave.AddTime(-changeTime);
     }
 
     public void UseIncreaseTimeItem()
     {
-        InGameSave.SetTime(changeTime);
+        InGameSave.AddTime(changeTime);
     }
 
     public void UseBombItem(){
