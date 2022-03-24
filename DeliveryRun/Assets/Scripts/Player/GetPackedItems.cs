@@ -28,11 +28,12 @@ public class GetPackedItems : MonoBehaviour
     {
         return packedItemIDs;
     }
+
     public void InitializePackedItem()
     {
         packedItemIDs = new int[PackingItems.bagMaxSize];
         JsonData packedItemsData = JsonMapper.ToJson(packedItemIDs);
-        File.WriteAllText(FilePath.resourcePath + "/PackedItemID.json", packedItemsData.ToString());
+        File.WriteAllText(FilePath.savePath + "/PackedItemID.json", packedItemsData.ToString());
     }
 
     public bool CheckResetPackedItem()

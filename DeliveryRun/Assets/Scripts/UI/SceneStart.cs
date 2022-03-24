@@ -8,8 +8,12 @@ public class SceneStart : MonoBehaviour
 {
     void Awake()
     {
+        if (SceneManager.GetActiveScene().buildIndex == ScenesNameConst.getPlayerNameScene)
+            GetComponent<ResetToStart>().ResetItemsToStart();
+
         if (File.Exists(FilePath.savePath + "/PlayerInfo.txt"))
         {
+
             Tutorial.showTutorial = false;
 
             LoadPlayerInfo.Load();
