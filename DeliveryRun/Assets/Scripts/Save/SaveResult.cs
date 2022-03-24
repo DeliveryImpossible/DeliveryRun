@@ -20,7 +20,10 @@ public class SaveResult : MonoBehaviour
         {
             mapInfo.unlockedMap[map] = true;
         }
-        mapInfo.earnedStarByMap[map-1].starCountArr[difficult-1] = star;
+        if(mapInfo.earnedStarByMap[map-1].starCountArr[difficult-1] < star)
+        {
+            mapInfo.earnedStarByMap[map - 1].starCountArr[difficult - 1] = star;
+        }
 
         mapInfoLoad.SaveMapInfo(mapInfo);
     }
