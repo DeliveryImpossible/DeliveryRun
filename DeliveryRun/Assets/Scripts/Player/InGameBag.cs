@@ -42,14 +42,14 @@ public class InGameBag : MonoBehaviour
 
     public void TabAndUseItem(int index){ 
         int gameSlotID = inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id;
-
+ 
         if (index >= packedItemList.Count){
             return;
         }
-        else if(!CheckAutoItem(gameSlotID))
+        else if(!CheckAutoItem(index))
         {
             soundEffectManager.OnEffectSound(SoundEffectManager.itemClick);
-
+            
             switch (gameSlotID)
             {
                 case 1:
