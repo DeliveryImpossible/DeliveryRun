@@ -56,9 +56,7 @@ public class ItemSoundEffect : MonoBehaviour
             audioSource.clip = audioEnemy;
             audioSource.Play();
             if(inGameItems.haveHealItem == true){
-               inGameItems.healItem.SetActive(true);
                 inGameItems.HaveHealItem();
-
             }else{
                 inGameItems.UseSkullItem();
             }
