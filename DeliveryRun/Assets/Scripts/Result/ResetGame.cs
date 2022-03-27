@@ -19,6 +19,7 @@ public class ResetGame : MonoBehaviour
         NowGameMap.nowPlayingMap = 0;
     }
 
+    //##중복
     private void InitPackedItem()
     {
         int[] itemsID = new int[3];

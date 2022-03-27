@@ -12,12 +12,12 @@ public class InGameBag : MonoBehaviour
 
     private const int noItemInSlot = 0;
     private const int boosterID = 1;
-    private const int coinID = 2; 
+    private const int coinID = 2;
     private const int increaseTimeID = 3;
     private const int begID = 4;
     private const int healID = 5;
     private const int bombID = 6;
-    private const int skullID = 7; 
+    private const int skullID = 7;
     private const int totalItemsAmount = 7;
     private const int totalPackedItemsAmount = 6;
 
@@ -40,16 +40,16 @@ public class InGameBag : MonoBehaviour
         InGameBagRefresh();
     }
 
-    public void TabAndUseItem(int index){ 
+    public void TabAndUseItem(int index){
         int gameSlotID = inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id;
- 
+
         if (index >= packedItemList.Count){
             return;
         }
-        else if(!CheckAutoItem(index))
+        else if(!CheckAutoItemExist(index))
         {
             soundEffectManager.OnEffectSound(SoundEffectManager.itemClick);
-            
+
             switch (gameSlotID)
             {
                 case 1:
@@ -57,7 +57,7 @@ public class InGameBag : MonoBehaviour
                     break;
                 case 6:
                     inGameItems.UseBombItem();
-                    break; 
+                    break;
             }
 
             packedItemList.RemoveAt(index);
@@ -78,14 +78,15 @@ public class InGameBag : MonoBehaviour
             slot.GetChild(1).gameObject.SetActive(false);
             slot.gameObject.GetComponent<Button>().interactable = true;
 
-            inGameitemInBag = slot.GetChild(0).GetComponent<Image>(); 
+            inGameitemInBag = slot.GetChild(0).GetComponent<Image>();
 
             inGameitemInBag.sprite = packedItemList[i].GetComponent<Image>().sprite;
-            isAutoItem = CheckAutoItem(i);
+            isAutoItem = CheckAutoItemExist(i);
 
             if (isAutoItem)
             {
-                slot.GetChild(1).gameObject.SetActive(true);
+                GameObject autoSign = slot.GetChild(1).gameObject;
+                autoSign.SetActive(true);
                 slot.gameObject.GetComponent<Button>().interactable = false;
 
                 inGameitemInBag.color = new Color(1, 1, 1, (float)0.5);
@@ -103,7 +104,8 @@ public class InGameBag : MonoBehaviour
         while(i<3)
         {
             slot = inGameBagSlots.transform.GetChild(i);
-            slot.GetChild(1).gameObject.SetActive(false);
+            GameObject autoSign = slot.GetChild(1).gameObject;
+            autoSign.SetActive(false);
             slot.gameObject.GetComponent<Button>().interactable = false;
 
             inGameitemInBag = slot.GetChild(0).GetComponent<Image>();
@@ -126,9 +128,20 @@ public class InGameBag : MonoBehaviour
         }
     }
 
-    bool CheckAutoItem(int slotOrder)
+    bool CheckAutoItemExist(int slotOrder)
     {
-        if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == begID)
+        if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == coinID)
+        {
+            inGameItems.haveCoinItem = true;
+            InGameSave.SetIsUsedCoinItem(true);
+            return true;
+        }
+        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == increaseTimeID)
+        {
+            inGameItems.haveIncreaseItem = true;
+            return true;
+        }
+        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == begID)
         {
             inGameItems.haveBegItem = true;
             return true;
@@ -138,21 +151,11 @@ public class InGameBag : MonoBehaviour
             inGameItems.haveHealItem = true;
             return true;
         }
-        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == increaseTimeID)
-        {
-            inGameItems.haveIncreaseItem = true;
-            return true;
-        }
-        else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == coinID)
-        {  
-            inGameItems.haveCoinItem = true;
-            InGameSave.SetIsUsedCoinItem(true);
-            return true;
-        }
         return false;
     }
 
-    public void RemoveHealInSlots(){ 
+
+    public void RemoveHealInSlots(){
         for(int i = 0; i<packedItemList.Count; i++){
             if(packedItemList[i].GetComponent<ItemInfo>().id == healID){
                 packedItemList.Remove(packedItemList[i]);
@@ -178,6 +181,6 @@ public class InGameBag : MonoBehaviour
         }
         InGameBagRefresh();
     }
-   
-    
+
+
 }
