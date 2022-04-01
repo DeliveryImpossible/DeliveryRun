@@ -41,16 +41,17 @@ public class CircularTimerController : MonoBehaviour
 
         if(InGameSave.GetTime() > limitTime){
             loadingBar.color = Color.blue;
-            loadingBar.fillAmount = (InGameSave.GetTime() - 1 - limitTime) / limitTime;
         }
         else if (InGameSave.GetTime() >= 1)
         {
             loadingBar.color = Color.red;
-            loadingBar.fillAmount = (InGameSave.GetTime() - 1) / limitTime;
+            
         }
         else
         {
             SceneManager.LoadScene(ScenesNameConst.resultScene);
         }
+
+        loadingBar.fillAmount = (InGameSave.GetTime() - 1) / limitTime;
     }
 }
