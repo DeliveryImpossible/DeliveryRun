@@ -5,21 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    private static bool IsPause = false;
-    public GameObject PauseButton;
-
+    public GameObject pauseBox;
     public void ScenePause()
     {
+        pauseBox.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Restart()
     {
+        pauseBox.SetActive(false);
         Time.timeScale = 1f;
     }
     
     public void NavigateToStartScene()
     {
+        pauseBox.SetActive(false);
         SceneManager.LoadScene(ScenesNameConst.startScene);
     }
 }
