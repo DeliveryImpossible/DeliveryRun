@@ -30,11 +30,21 @@ public class CircularTimerController : MonoBehaviour
     }
 
     public void Update()
-    {
-        if (InGameSave.GetTime() > 1)
-        {
-            InGameSave.AddTime(-Time.deltaTime);
+    {   
+        InGameSave.AddTime(-Time.deltaTime);
+
+        if((int)InGameSave.GetTime() % 60 < 10){
+            timerText.text = (int)InGameSave.GetTime() / 60 + " : 0" + (int)InGameSave.GetTime() % 60;
+        }else{
             timerText.text = (int)InGameSave.GetTime() / 60 + " : " + (int)InGameSave.GetTime() % 60;
+        }
+
+        if(InGameSave.GetTime() > limitTime){
+            loadingBar.color = Color.blue;
+        }
+        else if (InGameSave.GetTime() >= 1)
+        {
+            loadingBar.color = Color.red;
         }
         else
         {
@@ -42,6 +52,5 @@ public class CircularTimerController : MonoBehaviour
         }
 
         loadingBar.fillAmount = (InGameSave.GetTime() - 1) / limitTime;
-
     }
 }
