@@ -45,7 +45,6 @@ public class CircularTimerController : MonoBehaviour
         else if (InGameSave.GetTime() >= 1)
         {
             loadingBar.color = Color.red;
-            
         }
         else
         {
