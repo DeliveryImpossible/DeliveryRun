@@ -8,12 +8,11 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public const int main = 0;
-    public const int prologue = 1;
-    public const int level1 = 2;
-    public const int level2 = 3;
-    public const int level5 = 4;
-    public const int success = 5;
-    public const int fail = 6;
+    public const int level1 = 1;
+    public const int level2 = 2;
+    public const int level5 = 3;
+    public const int success = 4;
+    public const int fail = 5;
 
     private AudioSource musicSource;
     public static int scene_flag = 0;

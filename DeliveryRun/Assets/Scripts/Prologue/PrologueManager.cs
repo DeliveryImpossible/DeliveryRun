@@ -9,10 +9,8 @@ public class PrologueManager : MonoBehaviour
 
     private DialogueParser parser;
     private PrologueAnimations animations;
-    private AudioManager audioManager;
 
     public GameObject dialogueBox;
-
     private Text name;
     private Text line;
     private void Start()
@@ -21,19 +19,13 @@ public class PrologueManager : MonoBehaviour
         animations = GetComponent<PrologueAnimations>();
         name = dialogueBox.transform.GetChild(0).GetChild(0).GetComponent<Text>();
         line = dialogueBox.transform.GetChild(0).GetChild(1).GetComponent<Text>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        audioManager.ChangeMusic(AudioManager.prologue);
         GetDialogueLine();
     }
     public void GetDialogueLine()
     {
         animations.FindAnimationEvent(dialgueIndex);
 
-        if (dialgueIndex == parser.getEndLine())
-        {
-            audioManager.ChangeMusic(AudioManager.main);
-            return;
-        }
+        if (dialgueIndex == parser.getEndLine()) return;
 
         Dialogue dialogue = parser.prologueDialogueDic[dialgueIndex];
         name.text = dialogue.name;

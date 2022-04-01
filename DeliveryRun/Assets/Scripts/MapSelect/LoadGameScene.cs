@@ -71,7 +71,7 @@ public class LoadGameScene : MonoBehaviour
         NowGameMap.nowPlayingDifficulty = nowDifficulty;
         NowGameMap.nowPlayingMap = MapSelectIndex.currentMap;
         if(audioManager != null)
-            audioManager.ChangeMusic(extractSceneAudio(mapToLaod));
+            audioManager.ChangeMusic(mapToLaod);
         SceneManager.LoadScene(extractSceneIndex(mapToLaod));
     }
 
@@ -92,22 +92,6 @@ public class LoadGameScene : MonoBehaviour
 
     private int extractSceneIndex(int mapToLoad)
     {
-        if (mapToLoad == 1)
-            return ScenesNameConst.lv1Scene;
-        else if (mapToLoad == 2)
-            return ScenesNameConst.lv2Scene;
-        else if (mapToLoad == 3) return ScenesNameConst.lv5Scene;
-        else return -1;
-    }
-
-    private int extractSceneAudio(int mapToLoad)
-    {
-        if (mapToLoad == 1)
-            return AudioManager.level1;
-        else if (mapToLoad == 2)
-            return AudioManager.level2;
-        else if (mapToLoad == 3)
-            return AudioManager.level5;
-        else return -1;
+        return mapToLoad + 5;
     }
 }
