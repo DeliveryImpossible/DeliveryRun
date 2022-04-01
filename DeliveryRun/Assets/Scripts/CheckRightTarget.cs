@@ -22,9 +22,11 @@ public class CheckRightTarget : MakeReceipt
     private InGameItems inGameItems;
     private SoundEffectManager soundEffectManager;
 
+    private GameObject[] foundObjects;
+
     private void Start()
     {
-        FoundObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Target"));
+        foundObjects = gameObject.GetComponent<MakeReceipt>().totalStoreObj;
         player = GameObject.FindGameObjectWithTag("Player");
         inGameItems = player.GetComponent<InGameItems>();
         soundEffectManager = GameObject.FindGameObjectWithTag("EffectAudioManager").GetComponent<SoundEffectManager>();
@@ -34,9 +36,9 @@ public class CheckRightTarget : MakeReceipt
 
     public void CheckTarget()
     {
-        shortDis = Vector3.Distance(player.transform.position, FoundObjects[0].transform.position);
-        enemy = FoundObjects[0];
-        foreach (GameObject found in FoundObjects)
+        shortDis = Vector3.Distance(player.transform.position, foundObjects[0].transform.position);
+        enemy = foundObjects[0];
+        foreach (GameObject found in foundObjects)
         {
             float Distance = Vector3.Distance(player.transform.position, found.transform.position);
 
@@ -46,7 +48,6 @@ public class CheckRightTarget : MakeReceipt
                 shortDis = Distance;
             }
         }
-        Debug.Log(enemy.name);
 
         for (int i = 0; i < NowGameMap.nowPlayingDifficulty + 2; i++)
         {
@@ -90,12 +91,11 @@ public class CheckRightTarget : MakeReceipt
     {
         soundEffectManager.OnEffectSound(SoundEffectManager.rightGood);
         InGameSave.SetSuccessNum(1);
-        InGameSave.SetCoin(500);
+        InGameSave.AddCoin(500);
 
-        //성공
         if (DeliverAll())
         {
-            SceneManager.LoadScene("10_Result");
+            SceneManager.LoadScene(ScenesNameConst.resultScene);
         }
 
         selectedButton.interactable = false;

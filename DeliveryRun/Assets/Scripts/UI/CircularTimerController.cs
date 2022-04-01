@@ -20,7 +20,7 @@ public class CircularTimerController : MonoBehaviour
     }
     void Start()
     {
-        InGameSave.SetTime(limitTime);
+        InGameSave.AddTime(limitTime);
         if( GameObject.FindGameObjectWithTag("Player").GetComponent<InGameItems>().haveIncreaseItem == true){
             inGameItems.UseIncreaseTimeItem();
             InGameBag usehaveIncreaseItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>(); 
@@ -33,13 +33,12 @@ public class CircularTimerController : MonoBehaviour
     {
         if (InGameSave.GetTime() > 1)
         {
-            InGameSave.SetTime(-Time.deltaTime);
+            InGameSave.AddTime(-Time.deltaTime);
             timerText.text = (int)InGameSave.GetTime() / 60 + " : " + (int)InGameSave.GetTime() % 60;
         }
         else
         {
-            //패배
-            SceneManager.LoadScene("10_Result");
+            SceneManager.LoadScene(ScenesNameConst.resultScene);
         }
 
         loadingBar.fillAmount = (InGameSave.GetTime() - 1) / limitTime;

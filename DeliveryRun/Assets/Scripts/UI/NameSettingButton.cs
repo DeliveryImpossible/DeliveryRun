@@ -16,6 +16,6 @@ public class NameSettingButton : MonoBehaviour
     {
         PlayerInfo.name = nameField.text;
         SavePlayerInfo.Save();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(ScenesNameConst.prologue);
     }
 }

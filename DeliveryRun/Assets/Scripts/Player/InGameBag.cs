@@ -42,27 +42,21 @@ public class InGameBag : MonoBehaviour
 
     public void TabAndUseItem(int index){ 
         int gameSlotID = inGameBagSlots.transform.GetChild(index).GetComponent<ItemInfo>().id;
-
+ 
         if (index >= packedItemList.Count){
             return;
         }
-        else if(CheckAutoItem(gameSlotID))
+        else if(!CheckAutoItem(index))
         {
             soundEffectManager.OnEffectSound(SoundEffectManager.itemClick);
-
+            
             switch (gameSlotID)
             {
                 case 1:
                     inGameItems.UseBoosterItem();
                     break;
-                case 2:
-                    inGameItems.AddCoinItem();
-                    break;
                 case 6:
                     inGameItems.UseBombItem();
-                    break;
-                case 7:
-                    inGameItems.UseSkullItem();
                     break; 
             }
 
@@ -152,6 +146,7 @@ public class InGameBag : MonoBehaviour
         else if (packedItemList[slotOrder].GetComponent<ItemInfo>().id == coinID)
         {  
             inGameItems.haveCoinItem = true;
+            InGameSave.SetIsUsedCoinItem(true);
             return true;
         }
         return false;

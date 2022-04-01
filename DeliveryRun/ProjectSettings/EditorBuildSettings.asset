@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/0_GetPlayerName.unity
     guid: 6fa6322c1e920e1458afec26d82dae76
   - enabled: 1
+    path: Assets/Scenes/0_Prologue.unity
+    guid: 7cb72bb14bfa57040906f13c9ebc5f6e
+  - enabled: 1
     path: Assets/Scenes/1_Start.unity
     guid: 997b9cd02a184ed4c9ffa5da0a9c96d3
   - enabled: 1

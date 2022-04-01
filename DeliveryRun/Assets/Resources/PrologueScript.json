@@ -1,0 +1,38 @@
+﻿[
+  {
+    "index": 0,
+    "location": "House",
+    "name": "",
+    "line": "돈이 없어 오늘도 아무것도 먹지 못한 "
+  },
+  {
+    "index": 1,
+    "location": "House",
+    "name": "",
+    "line": "TV를 보게 되는데..."
+  },
+  {
+    "index": 2,
+    "location": "out",
+    "name": "진행자",
+    "line": "어떻게 이렇게 큰 호텔의 주인이 되실 수 있었는지 비법이 궁금합니다!"
+  },
+  {
+    "index": 3,
+    "location": "out",
+    "name": "부자",
+    "line": "다들 제가 금수저라고 생각하던데, 저는 제가 자수성가 했어요."
+  },
+  {
+    "index": 4,
+    "location": "out",
+    "name": "부자",
+    "line": "저는 배달 일을 해서 돈을 모았답니다."
+  },
+  {
+    "index": 5,
+    "location": "House",
+    "name": "main",
+    "line": "뭐?! 그래! 나도 배달로 돈을 벌어 부자가 되어야지!!"
+  }
+]
