@@ -9,6 +9,7 @@ namespace DifficultSet
 {
     class Difficulty
     {
+        public const int difficultyLevelMax = 3;
         public static string[] difficultyNameString = { "EASY", "NORMAL", "HARD" };
     }
 }

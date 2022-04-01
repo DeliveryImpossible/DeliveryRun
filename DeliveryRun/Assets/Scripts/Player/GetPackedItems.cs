@@ -29,12 +29,23 @@ public class GetPackedItems : MonoBehaviour
         return packedItemIDs;
     }
 
-    //##분명히 쓰이는 곳이 있어야 하는데 용도 파악 불가
-    public void Initialize()
+    public void InitializePackedItem()
     {
-        packedItemIDs = new int[3];
+        packedItemIDs = new int[PackingItems.bagMaxSize];
         JsonData packedItemsData = JsonMapper.ToJson(packedItemIDs);
-        File.WriteAllText(FilePath.resourcePath + "/PackedItemID.json", packedItemsData.ToString());
+        File.WriteAllText(FilePath.savePath + "/PackedItemID.json", packedItemsData.ToString());
+    }
+
+    public bool CheckResetPackedItem()
+    {
+        for(int i = 0; i < PackingItems.bagMaxSize; i++)
+        {
+            if(packedItemIDs[i] != 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
    

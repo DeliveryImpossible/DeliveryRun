@@ -8,7 +8,7 @@ using System.IO;
 
 public class PackingItems : MonoBehaviour
 {
-    const int bagMaxSize = 3;
+    public const int bagMaxSize = 3;
 
     public EventSystem eventSystem;
     public GameObject packedItemBagBox;

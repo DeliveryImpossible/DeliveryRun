@@ -9,9 +9,6 @@ public class InGameItems : MonoBehaviour
     private float speedUpAmout = 5f;
     private float changeTime = 7f;
 
-    public GameObject healItem;
-    public GameObject begItem;
-
     public bool haveHealItem = false; 
     public bool haveBegItem = false; 
     public bool haveIncreaseItem = false; 
@@ -20,13 +17,6 @@ public class InGameItems : MonoBehaviour
     private InGameBag inGameBag;
     private void Start()
     {
-        healItem = GameObject.Find("node_id226");
-        //healItem.SetActive(false);
-        
-        begItem = GameObject.Find("node_id58");
-        //begItem.SetActive(false);
-
-
         inGameBag = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InGameBag>();
     }
 
@@ -67,16 +57,16 @@ public class InGameItems : MonoBehaviour
     }
 
     public void AddCoinItem(){
-        InGameSave.SetCoin(100);
+        InGameSave.AddCoin(100);
     }
                                 
     public void UseSkullItem(){
-        InGameSave.SetTime(-changeTime);
+        InGameSave.AddTime(-changeTime);
     }
 
     public void UseIncreaseTimeItem()
     {
-        InGameSave.SetTime(changeTime);
+        InGameSave.AddTime(changeTime);
     }
 
     public void UseBombItem(){
@@ -87,25 +77,14 @@ public class InGameItems : MonoBehaviour
     public void HaveHealItem(){
         InGameBag useHealItemInSlot = GameObject.Find("GameManager").GetComponent<InGameBag>();
         useHealItemInSlot.RemoveHealInSlots();
-        Invoke("UseHealItem", 1f);
     }
 
     void RestoreSpeed(){
         InGameSave.SetSpeed(speedUpAmout, false);
     }
 
-    void UseHealItem(){
-        healItem.SetActive(false);
-    }
-
     public void HaveBegItem(){
-        begItem.SetActive(true);
         haveBegItem = false;
-        Invoke("UseBegItem", 1f);
-    }
-
-    void UseBegItem(){
-        begItem.SetActive(false);
         inGameBag.RemoveBegInSlots();
     }
 

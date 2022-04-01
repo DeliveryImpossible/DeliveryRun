@@ -5,6 +5,7 @@ using UnityEngine;
 public class SaveResult : MonoBehaviour
 {
     MapInfoLoad mapInfoLoad;
+
     private void Awake()
     {
         mapInfoLoad = GetComponent<MapInfoLoad>();
@@ -12,9 +13,10 @@ public class SaveResult : MonoBehaviour
 
     public void ConnectResultSave(int map, int difficult, int star)
     {
-        //mapInfoLoad.CountLoad();
+        mapInfoLoad.CountLoad();
         MapInfo mapInfo = mapInfoLoad.GetMapInfo();
-        if (difficult == 3 && map < mapInfo.totalMapCount )
+
+        if (difficult == DifficultSet.Difficulty.difficultyLevelMax && map < mapInfo.totalMapCount )
         {
             mapInfo.unlockedMap[map] = true;
         }

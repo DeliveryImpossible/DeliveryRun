@@ -91,7 +91,7 @@ public class CheckRightTarget : MakeReceipt
     {
         soundEffectManager.OnEffectSound(SoundEffectManager.rightGood);
         InGameSave.SetSuccessNum(1);
-        InGameSave.SetCoin(500);
+        InGameSave.AddCoin(500);
 
         if (DeliverAll())
         {
