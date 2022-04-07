@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     GameObject prefab;
-    public static int enemyNumber = 10;
+    public static int enemyNumber = 15;
     
     void Start()
     {
