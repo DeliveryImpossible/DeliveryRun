@@ -19,7 +19,6 @@ public class UIDescription : MonoBehaviour
         firstPanelsecondButton.SetActive(true);
         firstPanelsecondText.SetActive(true);
     }
-
     public void navigateToSecondAtSecondPanel()
     {
         secondPanelfirstText.SetActive(false);
