@@ -13,7 +13,7 @@ public class Tutorial : MonoBehaviour
    
     public GameObject startPanel;
     public GameObject tutorialStartPanel;
-    public GameObject tutorialFirstPanel;
+    public GameObject tutorialSecondPanel;
 
     private void Awake()
     {
@@ -21,9 +21,13 @@ public class Tutorial : MonoBehaviour
         {
             startPanel.SetActive(false);
             tutorialStartPanel.SetActive(true);
-            tutorialFirstPanel.SetActive(true);
             OffTutorial();
         }
+    }
+
+    public int CheckTutorial()
+    {
+        return TutorialInfo.playnum;
     }
     public void OffTutorial()
     {
