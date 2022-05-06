@@ -13,8 +13,8 @@ public class ItemSpawner : MonoBehaviour
     int bombNumber = 3;
     int boosterNumber = 4;
     int coinNumber = 6;
-    int increaseTimeNumber = 4;
-    int skullNumber = 6;
+    int increaseTimeNumber = 6;
+    int skullNumber = 8;
 
     
     void Start()
