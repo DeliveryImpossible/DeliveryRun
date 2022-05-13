@@ -26,6 +26,8 @@ TagManager:
   - RandomEnemyLocation
   - RandomItemLocation
   - ItemInBag
+  - GoodsPanel
+  - Pause
   layers:
   - Default
   - TransparentFX
