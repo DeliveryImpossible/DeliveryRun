@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject pauseBox;
+    private ButtonSceneChange buttonSceneChange;
+    private void Start()
+    {
+        buttonSceneChange = GameObject.FindGameObjectWithTag("Manager").GetComponent<ButtonSceneChange>();
+    }
+
     public void ScenePause()
     {
         pauseBox.SetActive(true);
@@ -21,6 +27,6 @@ public class Pause : MonoBehaviour
     public void NavigateToStartScene()
     {
         pauseBox.SetActive(false);
-        SceneManager.LoadScene(ScenesNameConst.startScene);
+        buttonSceneChange.MainMenu();
     }
 }
