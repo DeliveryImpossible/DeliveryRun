@@ -4834,7 +4834,7 @@ GameObject:
   - component: {fileID: 8607557737474278452}
   m_Layer: 0
   m_Name: GoodsPanel
-  m_TagString: Goods
+  m_TagString: GoodsPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

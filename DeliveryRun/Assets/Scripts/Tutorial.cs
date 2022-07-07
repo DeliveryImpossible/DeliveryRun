@@ -3,35 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TutorialInfo
+public static class TutorialInfo
 {
-    public static int playnum = 0;
+    public static bool isPlayed = false;
 }
 
 public class Tutorial : MonoBehaviour
 {
    
-    public GameObject startPanel;
+    public UnityEngine.UI.Button startPanelBtn;
     public GameObject tutorialStartPanel;
-    public GameObject tutorialSecondPanel;
 
     private void Awake()
     {
-        if(TutorialInfo.playnum == 0)
+        Debug.Log("튜토리얼 열렸었나요? " + TutorialInfo.isPlayed);
+        if(!TutorialInfo.isPlayed)
         {
-            startPanel.SetActive(false);
+            startPanelBtn.enabled = false;
             tutorialStartPanel.SetActive(true);
             OffTutorial();
         }
     }
 
-    public int CheckTutorial()
+    public bool CheckTutorial()
     {
-        return TutorialInfo.playnum;
+        return TutorialInfo.isPlayed;
     }
     public void OffTutorial()
     {
-        TutorialInfo.playnum = 1;
+        TutorialInfo.isPlayed = true;
     }
 
     public void StopTime()
@@ -42,5 +42,10 @@ public class Tutorial : MonoBehaviour
     public void StartTime()
     {
         Time.timeScale = 1;
+    }
+
+    public void MakeToStartGame()
+    {
+        startPanelBtn.enabled = true;
     }
 }

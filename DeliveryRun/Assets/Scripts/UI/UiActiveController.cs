@@ -39,16 +39,5 @@ public class UiActiveController : MonoBehaviour
         isStart = true;
         CheckDeliverZone checkDeliverZone = targetManager.GetComponent<CheckDeliverZone>();
         checkDeliverZone.MakeStorePos();
-
-        /*
-        if (tutorial.CheckTutorial() == 0)
-        {
-            Debug.Log("tutorial.CheckTutorial()" + tutorial.CheckTutorial());
-            tutorial.tutorialSecondPanel.SetActive(true);
-        }
-        */
-        
-        
-        tutorial.tutorialSecondPanel.SetActive(true);
     }
 }

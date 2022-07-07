@@ -17,12 +17,18 @@ public class MakeReceipt : MonoBehaviour
 
     Transform missionMenuPanel;
     public GameObject[] totalMenuObj;
-    public GameObject itemPanelObj;
-    public GameObject goodsPanel;
+    GameObject itemPanelObj;
+    GameObject goodsPanel;
 
     GameObject startMapItemPanel;
     public GameObject[] startMapItems;
 
+    private void Awake()
+    {
+
+        itemPanelObj = GameObject.FindGameObjectWithTag("Goods");
+        goodsPanel = GameObject.FindGameObjectWithTag("GoodsPanel");
+    }
     private void Start()
     {
         totalStoreNum = GetComponent<DatabaseManager>().getTotalStoreNum();
